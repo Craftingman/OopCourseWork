@@ -1,8 +1,9 @@
 ﻿using System;
+using DAL.Abstractions;
 
 namespace DAL
 {
-    public class Class1
+    public class PrisonerDalService : IPrisonerDalService
     {
     }
 }

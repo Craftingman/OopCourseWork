@@ -7,9 +7,9 @@ namespace DAL
 {
     public class UserDalService : IUserDalService
     {
-        private readonly XDocument _database;
+        private readonly XElement _database;
 
-        public UserDalService(XDocument xDocument)
+        public UserDalService(XElement xDocument)
         {
             _database = xDocument;
         }
@@ -28,7 +28,7 @@ namespace DAL
 
             XElement xRole = _database.Element("roles")
                 ?.Elements("role")
-                .FirstOrDefault(e => e.Element("id")?.Value == xUser.Element("roleId")?.Value);
+                .FirstOrDefault(e => e.Attribute("id")?.Value == xUser.Element("roleId")?.Value);
 
             return new User()
             {
@@ -40,7 +40,7 @@ namespace DAL
                 MiddleName = xUser.Element("middleName")?.Value,
                 Role = new Role()
                 {
-                    Id = int.Parse(xRole?.Element("id")?.Value ?? "-1"),
+                    Id = int.Parse(xRole?.Attribute("id")?.Value ?? "-1"),
                     Name = xRole?.Element("name")?.Value
                 }
             };
@@ -48,12 +48,41 @@ namespace DAL
 
         public void CreateUser(User user, string roleName)
         {
-            throw new System.NotImplementedException();
+            int.TryParse(_database
+                .Element("roles")
+                ?.Elements("role")
+                .FirstOrDefault(e => e.Element("name")?.Value == roleName)
+                ?.Element("id")
+                ?.Value, out int roleId);
+
+            int id = 0;
+            
+            if (!_database.Element("users").IsEmpty)
+            {
+                int.TryParse(_database
+                    .Element("users")
+                    ?.Elements("user")
+                    .LastOrDefault()
+                    ?.Element("id")
+                    ?.Value, out id);
+                id++;
+            }
+            
+            XElement xUser = new XElement("user", 
+                new XElement("name", user.Name),
+                new XElement("surname", user.Name),
+                new XElement("middleName", user.Name),
+                new XElement("email", user.Name),
+                new XElement("name", user.Password),
+                new XElement("roleId", roleId),
+                new XAttribute("id", id));
         }
 
         public bool UserExists(string email)
         {
-            throw new System.NotImplementedException();
+            return _database.Element("users")
+                ?.Elements("user")
+                .FirstOrDefault(e => e.Element("email")?.Value == email) is not null;
         }
     }
 }

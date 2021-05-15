@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using DAL;
+using DAL.Abstractions;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,8 +34,10 @@ namespace PrisonHeadDirectory
                     options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
 
-            services.AddSingleton<XDocument>(provider => XDocument.Load("database.xml"));
-            
+            services.AddSingleton<XElement>(provider => XDocument.Load("database.xml").Element("database"));
+            services.AddTransient<IPrisonerDalService, PrisonerDalService>();
+            services.AddTransient<IUserDalService, UserDalService>();
+
             services.AddControllersWithViews();
         }
 
