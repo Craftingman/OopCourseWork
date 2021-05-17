@@ -9,12 +9,12 @@
       <password>aaaa1111</password>
       <roleId>2</roleId>
     </user>
-    <user id="1">
-      <name>Черепанова</name>
-      <surname>Позорная</surname>
-      <middleName>Мразь</middleName>
-      <email>yulia.cherepanova@nure.ua</email>
-      <password>cccc1111</password>
+    <user id="2">
+      <name>User</name>
+      <surname>Userskiy</surname>
+      <middleName>Userovich</middleName>
+      <email>user@gmail.com</email>
+      <password>user</password>
       <roleId>1</roleId>
     </user>
   </users>

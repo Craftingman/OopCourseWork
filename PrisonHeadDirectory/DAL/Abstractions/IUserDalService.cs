@@ -16,6 +16,10 @@ namespace DAL.Abstractions
 
         void CreateUser(User user, string roleName);
 
+        void UpdateUser(User user, string roleName);
+
+        void DeleteUser(int id);
+
         bool UserExists(string email);
     }
 }

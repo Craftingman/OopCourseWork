@@ -32,8 +32,8 @@ namespace PrisonHeadDirectory
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
-                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
-                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Users/Login");
+                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Users/Login");
                 });
             
             services.AddSingleton<XElement>(provider => XDocument

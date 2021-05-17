@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using System.Net
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PrisonHeadDirectory</title>
+    <title>@ViewData["Title"] - Prison Head Directory</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -11,20 +13,41 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PrisonHeadDirectory</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Prison Head Directory</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Logout">Выход</a>
+                            </li>
+                        </ul>
+                    }
+                    @if (User.IsInRole("admin"))
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Get">Пользователи</a>
+                            </li>
+                        </ul>
+                    }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Login">Авторизация</a>
+                            </li>
+                        </ul>
+                    }
                 </div>
             </div>
         </nav>
@@ -37,7 +60,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - PrisonHeadDirectory - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - Prison Head Directory
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

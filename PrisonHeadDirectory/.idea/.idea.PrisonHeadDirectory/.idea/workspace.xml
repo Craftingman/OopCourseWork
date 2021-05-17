@@ -5,19 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="688e7ec9-2c7d-456e-9af9-ff67c6496dff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Create.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Delete.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Edit.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Get.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Models/EditUserViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Models/LoginViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Login.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PrisonHeadDirectory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PrisonHeadDirectory/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DAL/Abstractions/IUserDalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Abstractions/IUserDalService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/DAL.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DAL/UserDalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/UserDalService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/database.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/PrisonHeadDirectory.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/PrisonHeadDirectory.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Models/RegisterViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Models/RegisterUserViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +34,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B0B140A2-4C83-4A28-AD0C-3F987517B68C/D/RazorPageBase.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -52,17 +56,23 @@
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Pages/Users/Get.cshtml" />
       <option value="$PROJECT_DIR$/DAL/PrisonerDalService.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Models/RegisterViewModel.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Edit.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Delete.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Shared/Error.cshtml" />
-      <option value="$PROJECT_DIR$/DAL/Abstractions/IUserDalService.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Get.cshtml" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/UsersController.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Create.cshtml" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Startup.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/appsettings.json" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Models/EditViewModel.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Models/RegisterViewModel.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Create.cshtml" />
+      <option value="$PROJECT_DIR$/DAL/Abstractions/IUserDalService.cs" />
       <option value="$PROJECT_DIR$/DAL/UserDalService.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Edit.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Models/EditUserViewModel.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Models/LoginViewModel.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Login.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/UsersController.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/HomeController.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Startup.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Shared/_Layout.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1sWO87nEToQXyZVFiqMbHyGljUP" />
@@ -132,7 +142,7 @@
       <workItem from="1621071939378" duration="7008000" />
       <workItem from="1621079375803" duration="7565000" />
       <workItem from="1621235373026" duration="1446000" />
-      <workItem from="1621237041780" duration="383000" />
+      <workItem from="1621237041780" duration="7895000" />
     </task>
     <servers />
   </component>

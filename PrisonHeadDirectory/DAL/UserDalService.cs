@@ -39,7 +39,7 @@ namespace DAL
 
             return new User()
             {
-                Id = int.Parse(xUser?.Element("id")?.Value ?? "-1"),
+                Id = int.Parse(xUser?.Attribute("id")?.Value ?? "-1"),
                 Email = xUser.Element("email")?.Value,
                 Password = string.Empty,
                 Name = xUser.Element("name")?.Value,
@@ -70,7 +70,7 @@ namespace DAL
 
             return new User()
             {
-                Id = int.Parse(xUser?.Element("id")?.Value ?? "-1"),
+                Id = int.Parse(xUser?.Attribute("id")?.Value ?? "-1"),
                 Email = xUser.Element("email")?.Value,
                 Password = string.Empty,
                 Name = xUser.Element("name")?.Value,
@@ -136,6 +136,44 @@ namespace DAL
             _database.Save(_configuration.GetConnectionString("Database"));
         }
 
+        public void UpdateUser(User user, string roleName)
+        {
+            XElement xUser = _database.Element("users")
+                ?.Elements("user")
+                .FirstOrDefault(e => e.Attribute("id")?.Value == user.Id.ToString());
+
+            if (xUser == null)
+            {
+                return;
+            }
+
+            int.TryParse(_database
+                .Element("roles")
+                ?.Elements("role")
+                .FirstOrDefault(e => e.Element("name")?.Value == roleName)
+                ?.Attribute("id")
+                ?.Value, out int roleId);
+
+            xUser.Element("name").Value = user.Name;
+            xUser.Element("surname").Value = user.Surname;
+            xUser.Element("middleName").Value = user.MiddleName;
+            xUser.Element("email").Value = user.Email;
+            xUser.Element("roleId").Value = roleId.ToString();
+            
+            _database.Save(_configuration.GetConnectionString("Database"));
+        }
+
+        public void DeleteUser(int id)
+        {
+            XElement xUser = _database.Element("users")
+                ?.Elements("user")
+                .FirstOrDefault(e => e.Attribute("id")?.Value == id.ToString());
+
+            xUser?.Remove();
+            
+            _database.Save(_configuration.GetConnectionString("Database"));
+        }
+
         public IEnumerable<User> GetUsers(string searchStr)
         {
             List<User> users = new List<User>();
@@ -149,7 +187,7 @@ namespace DAL
 
                 users.Add(new User()
                 {
-                    Id = int.Parse(xUser?.Element("id")?.Value ?? "-1"),
+                    Id = int.Parse(xUser?.Attribute("id")?.Value ?? "-1"),
                     Email = xUser.Element("email")?.Value,
                     Password = string.Empty,
                     Name = xUser.Element("name")?.Value,
