@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<database>
+  <users>
+    <user id="0">
+      <name>Віктор</name>
+      <surname>Жеребний</surname>
+      <middleName>Валерійович</middleName>
+      <email>craftingman111@gmail.com</email>
+      <password>aaaa1111</password>
+      <roleId>2</roleId>
+    </user>
+    <user id="1">
+      <name>Черепанова</name>
+      <surname>Позорная</surname>
+      <middleName>Мразь</middleName>
+      <email>yulia.cherepanova@nure.ua</email>
+      <password>cccc1111</password>
+      <roleId>1</roleId>
+    </user>
+  </users>
+  <roles>
+    <role id="1">
+      <name>default</name>
+    </role>
+    <role id="2">
+      <name>admin</name>
+    </role>
+  </roles>
+</database>

@@ -1,7 +1,11 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Xml.Linq;
 using Core;
 using DAL.Abstractions;
+using Microsoft.Extensions.Configuration;
 
 namespace DAL
 {
@@ -9,12 +13,15 @@ namespace DAL
     {
         private readonly XElement _database;
 
-        public UserDalService(XElement xDocument)
+        private readonly IConfiguration _configuration;
+
+        public UserDalService(XElement xDocument, IConfiguration configuration)
         {
             _database = xDocument;
+            _configuration = configuration;
         }
 
-        public User GetUser(string email, string password)
+        public User GetUserForAuth(string email, string password)
         {
             XElement xUser = _database.Element("users")
                 ?.Elements("user")
@@ -46,36 +53,120 @@ namespace DAL
             };
         }
 
+        public User GetUser(int id)
+        {
+            XElement xUser = _database.Element("users")
+                ?.Elements("user")
+                .FirstOrDefault(e => e.Attribute("id")?.Value == id.ToString());
+
+            if (xUser is null)
+            {
+                return null;
+            }
+
+            XElement xRole = _database.Element("roles")
+                ?.Elements("role")
+                .FirstOrDefault(e => e.Attribute("id")?.Value == xUser.Element("roleId")?.Value);
+
+            return new User()
+            {
+                Id = int.Parse(xUser?.Element("id")?.Value ?? "-1"),
+                Email = xUser.Element("email")?.Value,
+                Password = string.Empty,
+                Name = xUser.Element("name")?.Value,
+                Surname = xUser.Element("surname")?.Value,
+                MiddleName = xUser.Element("middleName")?.Value,
+                Role = new Role()
+                {
+                    Id = int.Parse(xRole?.Attribute("id")?.Value ?? "-1"),
+                    Name = xRole?.Element("name")?.Value
+                }
+            };
+        }
+
+        public IEnumerable<Role> GetRoles()
+        {
+            List<Role> roles = new List<Role>();
+            
+            foreach (var xRole in _database.Element("roles")?.Elements("role"))
+            {
+                roles.Add(new Role()
+                {
+                    Id = int.Parse(xRole?.Attribute("id")?.Value ?? "-1"),
+                    Name = xRole?.Element("name")?.Value
+                });
+            }
+
+            return roles;
+        }
+
         public void CreateUser(User user, string roleName)
         {
             int.TryParse(_database
                 .Element("roles")
                 ?.Elements("role")
                 .FirstOrDefault(e => e.Element("name")?.Value == roleName)
-                ?.Element("id")
+                ?.Attribute("id")
                 ?.Value, out int roleId);
 
             int id = 0;
             
-            if (!_database.Element("users").IsEmpty)
+            if (_database.Element("users").HasElements)
             {
-                int.TryParse(_database
+                id = int.Parse(_database
                     .Element("users")
                     ?.Elements("user")
                     .LastOrDefault()
-                    ?.Element("id")
-                    ?.Value, out id);
+                    ?.Attribute("id")
+                    ?.Value ?? string.Empty);
                 id++;
             }
             
             XElement xUser = new XElement("user", 
                 new XElement("name", user.Name),
-                new XElement("surname", user.Name),
-                new XElement("middleName", user.Name),
-                new XElement("email", user.Name),
-                new XElement("name", user.Password),
+                new XElement("surname", user.Surname),
+                new XElement("middleName", user.MiddleName),
+                new XElement("email", user.Email.ToLower()),
+                new XElement("password", user.Password),
                 new XElement("roleId", roleId),
                 new XAttribute("id", id));
+            
+            _database.Element("users")?.Add(xUser);
+            
+            _database.Save(_configuration.GetConnectionString("Database"));
+        }
+
+        public IEnumerable<User> GetUsers(string searchStr)
+        {
+            List<User> users = new List<User>();
+            string normalizedSearchString = searchStr.ToLower();
+
+            foreach (var xUser in _database.Element("users")?.Elements("user"))
+            {
+                XElement xRole = _database.Element("roles")
+                    ?.Elements("role")
+                    .FirstOrDefault(e => e.Attribute("id")?.Value == xUser.Element("roleId")?.Value);
+
+                users.Add(new User()
+                {
+                    Id = int.Parse(xUser?.Element("id")?.Value ?? "-1"),
+                    Email = xUser.Element("email")?.Value,
+                    Password = string.Empty,
+                    Name = xUser.Element("name")?.Value,
+                    Surname = xUser.Element("surname")?.Value,
+                    MiddleName = xUser.Element("middleName")?.Value,
+                    Role = new Role()
+                    {
+                        Id = int.Parse(xRole?.Attribute("id")?.Value ?? "-1"),
+                        Name = xRole?.Element("name")?.Value
+                    }
+                });
+            }
+
+            return users.Where(u => u.Name.ToLower().Contains(normalizedSearchString)
+                                    || u.Surname.ToLower().Contains(normalizedSearchString)
+                                    || u.MiddleName.ToLower().Contains(normalizedSearchString)
+                                    || u.Email.Contains(normalizedSearchString));
         }
 
         public bool UserExists(string email)
