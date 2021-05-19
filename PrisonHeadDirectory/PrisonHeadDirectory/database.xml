@@ -41,13 +41,13 @@
     </prisoner>
     <prisoner id="2">
       <name>Писюн</name>
-      <surname>Писюнов</surname>
+      <surname>Писюнищенко</surname>
       <middleName>Писюнович</middleName>
-      <releaseDate>2021-05-31T00:00:00</releaseDate>
-      <arrestDate>2021-05-01T00:00:00</arrestDate>
+      <releaseDate>22.05.2021 00:00:00</releaseDate>
+      <arrestDate>21.05.2021 00:00:00</arrestDate>
       <notes>Писюн писюном, что сказать</notes>
-      <cell>314</cell>
-      <imgPath />
+      <cell>317</cell>
+      <imgPath></imgPath>
       <casteId>0</casteId>
       <articleId>0</articleId>
     </prisoner>

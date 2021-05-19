@@ -62,7 +62,21 @@ namespace PrisonHeadDirectory.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            return RedirectToAction("Get");
+            Prisoner prisoner = _prisonerDalService.Get(id);
+            return View(prisoner);
+        }
+        
+        [HttpPost]
+        public IActionResult Edit(Prisoner prisoner)
+        {
+            if (ModelState.IsValid)
+            {
+                _prisonerDalService.Update(prisoner);
+                
+                return RedirectToAction("Get");
+            }
+
+            return View(prisoner);
         }
         
         [HttpGet]

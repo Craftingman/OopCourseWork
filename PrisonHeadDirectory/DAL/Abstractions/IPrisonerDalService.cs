@@ -9,5 +9,9 @@ namespace DAL.Abstractions
         IEnumerable<Prisoner> GetPrisoners(string searchStr = "");
 
         void Create(Prisoner prisoner);
+
+        void Update(Prisoner prisoner);
+
+        Prisoner Get(int id);
     }
 }

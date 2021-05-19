@@ -18,7 +18,7 @@ namespace Core
         [Required(ErrorMessage = "Не указана камера")]
         public string Cell { get; set; }
 
-        public string ImgPath { get; set; }
+        public string ImgPath { get; set; } = "";
 
         //Relations
 

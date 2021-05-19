@@ -75,6 +75,58 @@ namespace DAL
             _database.Save(_configuration.GetConnectionString("Database"));
         }
 
+        public void Update(Prisoner prisoner)
+        {
+            int id = prisoner.Id;
+
+            XElement xPrisoner = _database.Element("prisoners")
+                .Elements("prisoner")
+                .FirstOrDefault(p => p.Attribute("id")?.Value == id.ToString());
+
+            if (xPrisoner is null)
+            {
+                return;
+            }
+
+            xPrisoner.Element("name").Value = prisoner.Name;
+            xPrisoner.Element("surname").Value = prisoner.Surname;
+            xPrisoner.Element("middleName").Value = prisoner.MiddleName;
+            xPrisoner.Element("releaseDate").Value = prisoner.ReleaseDate.ToString();
+            xPrisoner.Element("arrestDate").Value = prisoner.ArrestDate.ToString();
+            xPrisoner.Element("notes").Value = prisoner.Notes;
+            xPrisoner.Element("cell").Value = prisoner.Cell;
+            xPrisoner.Element("imgPath").Value = prisoner.ImgPath;
+            xPrisoner.Element("casteId").Value = prisoner.CasteId.ToString();
+            xPrisoner.Element("articleId").Value = prisoner.ArticleId.ToString();
+            
+            _database.Save(_configuration.GetConnectionString("Database"));
+        }
+
+        public Prisoner Get(int id)
+        {
+            XElement xPrisoner = _database.Element("prisoners")
+                .Elements("prisoner")
+                .FirstOrDefault(p => p.Attribute("id")?.Value == id.ToString());
+
+            Prisoner prisoner = new Prisoner()
+            {
+                Name = xPrisoner.Element("name").Value,
+                Surname = xPrisoner.Element("surname").Value,
+                MiddleName = xPrisoner.Element("middleName").Value,
+                ReleaseDate = DateTime.Parse(xPrisoner.Element("releaseDate").Value),
+                ArrestDate = DateTime.Parse(xPrisoner.Element("arrestDate").Value),
+                Notes = xPrisoner.Element("notes").Value,
+                Cell = xPrisoner.Element("cell").Value,
+                ImgPath = xPrisoner.Element("imgPath").Value,
+                CasteId = Int32.Parse(xPrisoner.Element("casteId").Value ?? String.Empty),
+                ArticleId = Int32.Parse(xPrisoner.Element("articleId").Value ?? String.Empty),
+                Id = Int32.Parse(xPrisoner.Attribute("id").Value ?? String.Empty)
+            };
+
+            return prisoner;
+        }
+
+
         private List<Relative> GetRelatives(int prisonerId)
         {
             List<Relative> relatives = new List<Relative>();
