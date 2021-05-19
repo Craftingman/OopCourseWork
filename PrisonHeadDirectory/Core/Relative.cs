@@ -7,5 +7,7 @@
         public string PhoneNumber { get; set; }
         
         public string RelativeRole { get; set; }
+
+        public int PrisonerId { get; set; }
     }
 }

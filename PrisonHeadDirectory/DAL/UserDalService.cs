@@ -109,19 +109,8 @@ namespace DAL
                 ?.Attribute("id")
                 ?.Value, out int roleId);
 
-            int id = 0;
-            
-            if (_database.Element("users").HasElements)
-            {
-                id = int.Parse(_database
-                    .Element("users")
-                    ?.Elements("user")
-                    .LastOrDefault()
-                    ?.Attribute("id")
-                    ?.Value ?? string.Empty);
-                id++;
-            }
-            
+            int id = int.Parse(_database.Element("users")?.Attribute("lastId").Value ?? string.Empty) + 1;
+
             XElement xUser = new XElement("user", 
                 new XElement("name", user.Name),
                 new XElement("surname", user.Surname),
@@ -132,7 +121,7 @@ namespace DAL
                 new XAttribute("id", id));
             
             _database.Element("users")?.Add(xUser);
-            
+            _database.Element("users").Attribute("lastId").Value = id.ToString();
             _database.Save(_configuration.GetConnectionString("Database"));
         }
 

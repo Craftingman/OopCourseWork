@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <database>
-  <users>
+  <users lastId="4">
     <user id="0">
       <name>Віктор</name>
       <surname>Жеребний</surname>
@@ -26,4 +26,33 @@
       <name>admin</name>
     </role>
   </roles>
+  <prisoners lastId="2">
+    <prisoner id="1">
+      <name>Иван</name>
+      <surname>Иванов</surname>
+      <middleName>Иванович</middleName>
+      <releaseDate>2021-05-13T00:00:00</releaseDate>
+      <arrestDate>2010-07-15T00:00:00</arrestDate>
+      <notes>Норм чел</notes>
+      <cell>13</cell>
+      <imgPath />
+      <casteId>0</casteId>
+      <articleId>0</articleId>
+    </prisoner>
+    <prisoner id="2">
+      <name>Писюн</name>
+      <surname>Писюнов</surname>
+      <middleName>Писюнович</middleName>
+      <releaseDate>2021-05-31T00:00:00</releaseDate>
+      <arrestDate>2021-05-01T00:00:00</arrestDate>
+      <notes>Писюн писюном, что сказать</notes>
+      <cell>314</cell>
+      <imgPath />
+      <casteId>0</casteId>
+      <articleId>0</articleId>
+    </prisoner>
+  </prisoners>
+  <relatives></relatives>
+  <castes lastId="0"></castes>
+  <articles lastId="0"></articles>
 </database>
