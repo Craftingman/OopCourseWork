@@ -24,7 +24,7 @@ namespace DAL
             int id = int.Parse(_database.Element("castes")?.Attribute("lastId").Value ?? string.Empty) + 1;
             caste.Id = id;
 
-            XElement xCaste = new XElement("prisoner", 
+            XElement xCaste = new XElement("caste", 
                 new XElement("name", caste.Name),
                 new XAttribute("id", id));
             
@@ -35,7 +35,13 @@ namespace DAL
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            XElement xCaste = _database.Element("castes")
+                ?.Elements("caste")
+                .FirstOrDefault(el => el.Attribute("id")?.Value == id.ToString());
+
+            xCaste?.Remove();
+            
+            _database.Save(_configuration.GetConnectionString("Database"));
         }
 
         public Caste Get(int id)

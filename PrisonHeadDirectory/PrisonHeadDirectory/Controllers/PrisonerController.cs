@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Core;
 using DAL.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using PrisonHeadDirectory.Models;
 
 namespace PrisonHeadDirectory.Controllers
@@ -11,10 +13,17 @@ namespace PrisonHeadDirectory.Controllers
     public class PrisonerController : Controller
     {
         private readonly IPrisonerDalService _prisonerDalService;
+        private readonly ICasteDalService _casteDalService;
+        private readonly IArticleDalService _articleDalService;
 
-        public PrisonerController(IPrisonerDalService prisonerDalService)
+        public PrisonerController(
+            IPrisonerDalService prisonerDalService,
+            ICasteDalService casteDalService,
+            IArticleDalService articleDalService)
         {
             _prisonerDalService = prisonerDalService;
+            _casteDalService = casteDalService;
+            _articleDalService = articleDalService;
         }
         
         [HttpGet]
@@ -63,6 +72,41 @@ namespace PrisonHeadDirectory.Controllers
         public IActionResult Edit(int id)
         {
             Prisoner prisoner = _prisonerDalService.Get(id);
+
+            var castes = _casteDalService.GetAll().ToList();
+            var articles = _articleDalService.GetAll().ToList();
+
+            castes.Add(new Caste()
+            {
+                Name = "-- Не выбрано --",
+                Id = 0
+            });
+            
+            articles.Add(new Article()
+            {
+                Name = "-- Не выбрано --",
+                Id = 0
+            });
+            
+            if (!castes.Select(c => c.Id).Contains(prisoner.CasteId))
+            {
+                prisoner.CasteId = 0;
+            }
+            
+            if (!articles.Select(a => a.Id).Contains(prisoner.ArticleId))
+            {
+                prisoner.ArticleId = 0;
+            }
+            
+            SelectList castesList = 
+                new SelectList(castes, "Id", "Name", prisoner.CasteId);
+
+            SelectList articlesList =
+                new SelectList(articles, "Id", "Name", prisoner.ArticleId);
+            
+            ViewBag.Articles = articlesList;
+            ViewBag.Castes = castesList;
+            
             return View(prisoner);
         }
         

@@ -36,7 +36,13 @@ namespace DAL
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            XElement xArticle = _database.Element("articles")
+                ?.Elements("article")
+                .FirstOrDefault(el => el.Attribute("id")?.Value == id.ToString());
+            
+            xArticle?.Remove();
+            
+            _database.Save(_configuration.GetConnectionString("Database"));
         }
 
         public Article Get(int id)

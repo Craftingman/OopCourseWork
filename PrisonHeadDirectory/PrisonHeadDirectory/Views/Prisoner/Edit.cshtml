@@ -48,6 +48,19 @@
                 <textarea asp-for="Notes" class="form-control"></textarea>
                 <span asp-validation-for="Notes" class="text-danger"></span>
             </div>
+            <hr>
+            <div class="form-group">
+                <label class="control-label">Место в тюремной иерархии</label>
+                @Html.DropDownListFor(model => model.CasteId, ViewBag.Castes as SelectList)
+                <span asp-validation-for="CasteId" class="text-danger"></span>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label class="control-label">Статья</label>
+                @Html.DropDownListFor(model => model.ArticleId, ViewBag.Articles as SelectList)
+                <span asp-validation-for="ArticleId" class="text-danger"></span>
+            </div>
+            <hr>
             <div class="form-group">
                 <input type="submit" value="Сохранить" class="btn btn-primary" />
             </div>

@@ -6,7 +6,7 @@ namespace PrisonHeadDirectory.Models
     public class RegisterUserViewModel
     {
         [Required(ErrorMessage = "Не указан Email")]
-        [EmailAddress (ErrorMessage = "Некорректный адрес")]
+        [EmailAddress(ErrorMessage = "Некорректный адрес")]
         [Remote(action: "CheckEmail", controller: "Users", ErrorMessage ="Пользователь с таким E-Mail уже зарегистрирован")]
         public string Email { get; set; }
  

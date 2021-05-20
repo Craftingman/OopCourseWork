@@ -26,18 +26,18 @@
       <name>admin</name>
     </role>
   </roles>
-  <prisoners lastId="2">
+  <prisoners lastId="3">
     <prisoner id="1">
       <name>Иван</name>
       <surname>Иванов</surname>
       <middleName>Иванович</middleName>
-      <releaseDate>2021-05-13T00:00:00</releaseDate>
-      <arrestDate>2010-07-15T00:00:00</arrestDate>
+      <releaseDate>13.05.2021 00:00:00</releaseDate>
+      <arrestDate>15.07.2010 00:00:00</arrestDate>
       <notes>Норм чел</notes>
       <cell>13</cell>
-      <imgPath />
-      <casteId>0</casteId>
-      <articleId>0</articleId>
+      <imgPath></imgPath>
+      <casteId>2</casteId>
+      <articleId>1</articleId>
     </prisoner>
     <prisoner id="2">
       <name>Писюн</name>
@@ -48,11 +48,44 @@
       <notes>Писюн писюном, что сказать</notes>
       <cell>317</cell>
       <imgPath></imgPath>
-      <casteId>0</casteId>
-      <articleId>0</articleId>
+      <casteId>1</casteId>
+      <articleId>2</articleId>
+    </prisoner>
+    <prisoner id="3">
+      <name>Пигорь</name>
+      <surname>Пигоренко</surname>
+      <middleName>Пигоревич</middleName>
+      <releaseDate>29.11.2029 00:00:00</releaseDate>
+      <arrestDate>04.05.2021 00:00:00</arrestDate>
+      <notes>Пигорь пигорем</notes>
+      <cell>126</cell>
+      <imgPath></imgPath>
+      <casteId>2</casteId>
+      <articleId>2</articleId>
     </prisoner>
   </prisoners>
-  <relatives></relatives>
-  <castes lastId="0"></castes>
-  <articles lastId="0"></articles>
+  <relatives lastId="0">
+    
+  </relatives>
+  <castes lastId="5">
+    <caste id="1">
+      <name>Мужики</name>
+    </caste>
+    <caste id="2">
+      <name>Блатные</name>
+    </caste>
+    <caste id="5">
+      <name>Опущенные</name>
+    </caste>
+  </castes>
+  <articles lastId="6">
+    <article id="1">
+      <name>Убийство по неосторожности</name>
+      <number>119</number>
+    </article>
+    <article id="2">
+      <name>Умышленное средней тяжести телесное повреждение</name>
+      <number>122.2</number>
+    </article>
+  </articles>
 </database>

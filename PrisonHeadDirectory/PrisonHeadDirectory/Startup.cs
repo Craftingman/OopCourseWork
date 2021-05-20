@@ -40,6 +40,8 @@ namespace PrisonHeadDirectory
                 .Load(Configuration.GetConnectionString("Database")).Element("database"));
             services.AddTransient<IPrisonerDalService, PrisonerDalService>();
             services.AddTransient<IUserDalService, UserDalService>();
+            services.AddTransient<ICasteDalService, CasteDalService>();
+            services.AddTransient<IArticleDalService, ArticleDalService>();
 
             services.AddControllersWithViews();
         }
