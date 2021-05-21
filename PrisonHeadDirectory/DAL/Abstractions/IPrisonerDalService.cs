@@ -11,6 +11,8 @@ namespace DAL.Abstractions
         void Create(Prisoner prisoner);
 
         void Update(Prisoner prisoner);
+        
+        void Delete(int id);
 
         Prisoner Get(int id);
     }

@@ -102,6 +102,36 @@ namespace DAL
             _database.Save(_configuration.GetConnectionString("Database"));
         }
 
+        public void Delete(int id)
+        {
+            XElement xPrisoner = _database.Element("prisoners")
+                .Elements("prisoner")
+                .FirstOrDefault(p => p.Attribute("id")?.Value == id.ToString());
+
+            if (xPrisoner is null)
+            {
+                return;
+            }
+            
+            xPrisoner.Remove();
+            
+            List<XElement> xRelatives = _database.Element("relatives")
+                ?.Elements("relative")
+                .Where(el => el.Attribute("prisonerId")?.Value == id.ToString()).ToList();
+
+            if (xRelatives is null)
+            {
+                return;
+            }
+
+            foreach (var xRelative in xRelatives)
+            {
+                xRelative.Remove();
+            }
+            
+            _database.Save(_configuration.GetConnectionString("Database"));
+        }
+
         public Prisoner Get(int id)
         {
             XElement xPrisoner = _database.Element("prisoners")

@@ -32,5 +32,12 @@ namespace PrisonHeadDirectory.Controllers
 
             return View(relative);
         }
+        
+        [HttpGet]
+        public IActionResult DisplayRelativeInfo(int id)
+        {
+            Relative relative = _relativeDalService.Get(id);
+            return PartialView("_RelativeInfo", relative);
+        }
     }
 }

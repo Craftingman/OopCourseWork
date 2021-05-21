@@ -51,10 +51,15 @@ namespace DAL
                 ?.Elements("article")
                 .FirstOrDefault(el => el.Attribute("id")?.Value == id.ToString());
 
+            if (xArticle == null)
+            {
+                return null;
+            }
+
             Article article = new Article()
             {
                 Name = xArticle?.Element("name")?.Value,
-                Number = xArticle?.Element("name")?.Value
+                Number = xArticle?.Element("number")?.Value
             };
 
             return article;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -51,7 +52,22 @@ namespace DAL
 
         public Relative Get(int id)
         {
-            throw new System.NotImplementedException();
+            XElement xRelative = _database.Element("relatives")
+                ?.Elements("relative")
+                .FirstOrDefault(el => el.Attribute("id")?.Value == id.ToString());
+
+            Relative relative = new Relative()
+            {
+                Address = xRelative.Element("address")?.Value,
+                PhoneNumber = xRelative.Element("phoneNumber")?.Value,
+                RelativeRole = xRelative.Element("relativeRole")?.Value,
+                PrisonerId = int.Parse(xRelative.Attribute("prisonerId")?.Value ?? String.Empty),
+                Name = xRelative.Element("name")?.Value,
+                Surname = xRelative.Element("surname")?.Value,
+                MiddleName = xRelative.Element("middleName")?.Value,
+            };
+
+            return relative;
         }
 
         public IEnumerable<Relative> GetAll(int prisonerId)

@@ -26,7 +26,7 @@
       <name>admin</name>
     </role>
   </roles>
-  <prisoners lastId="3">
+  <prisoners lastId="4">
     <prisoner id="1">
       <name>Иван</name>
       <surname>Иванов</surname>
@@ -49,7 +49,7 @@
       <cell>317</cell>
       <imgPath></imgPath>
       <casteId>1</casteId>
-      <articleId>2</articleId>
+      <articleId>1</articleId>
     </prisoner>
     <prisoner id="3">
       <name>Пигорь</name>
@@ -63,15 +63,43 @@
       <casteId>2</casteId>
       <articleId>2</articleId>
     </prisoner>
+    <prisoner id="4">
+      <name>Николай</name>
+      <surname>Волосников</surname>
+      <middleName>Андреевич</middleName>
+      <releaseDate>12.06.2098 00:00:00</releaseDate>
+      <arrestDate>21.05.2021 00:00:00</arrestDate>
+      <notes>Нехороший человек, редиска</notes>
+      <cell>1337</cell>
+      <imgPath></imgPath>
+      <casteId>5</casteId>
+      <articleId>2</articleId>
+    </prisoner>
   </prisoners>
-  <relatives lastId="11">
-    <relative prisonerId="2" id="11">
-      <name>уапуц</name>
-      <surname>ено</surname>
-      <middleName>цуац</middleName>
-      <address>ноеное</address>
-      <phoneNumber>ноен</phoneNumber>
-      <relativeRole>еноено</relativeRole>
+  <relatives lastId="14">
+    <relative prisonerId="3" id="12">
+      <name>Алина</name>
+      <surname>Позорная</surname>
+      <middleName>Галина</middleName>
+      <address>пл. Святой Марии</address>
+      <phoneNumber>0902394543435</phoneNumber>
+      <relativeRole>Сестра</relativeRole>
+    </relative>
+    <relative prisonerId="2" id="13">
+      <name>Андрей</name>
+      <surname>Павленко</surname>
+      <middleName>Палыч</middleName>
+      <address>пл. Павла, 1</address>
+      <phoneNumber>22222200193487383</phoneNumber>
+      <relativeRole>Любовник</relativeRole>
+    </relative>
+    <relative prisonerId="4" id="14">
+      <name>Ян</name>
+      <surname>Игоренко</surname>
+      <middleName>Данилович</middleName>
+      <address>пл. Любовников</address>
+      <phoneNumber>2352675638</phoneNumber>
+      <relativeRole>Любовник</relativeRole>
     </relative>
   </relatives>
   <castes lastId="5">

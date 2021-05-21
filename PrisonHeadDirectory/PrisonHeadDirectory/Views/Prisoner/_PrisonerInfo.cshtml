@@ -1,0 +1,32 @@
+@model Core.Prisoner
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="prisoner-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Заключенный</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Имя: @Model.Name</p>
+                <p>Отчество: @Model.MiddleName</p>
+                <p>Фамилия: @Model.Surname</p>
+                <p>Дата ареста: @Model.ArrestDate.ToShortDateString()</p>
+                <p>Дата освобождения: @Model.ReleaseDate.ToShortDateString()</p>
+                <p>Камера: @Model.Cell</p>
+                <p>Статья: <span id="article-area"></span></p>
+                <p>Каста: <span id="caste-area"></span></p>
+                <div id="relative-container">
+                    @await Html.PartialAsync("_GetRelatives", Model.Relatives)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#caste-area").load('@Url.Action("GetCasteName", "Caste")?id='+@Model.CasteId);
+    $("#article-area").load('@Url.Action("GetArticleName", "Article")?id='+@Model.ArticleId);
+    $("#prisoner-modal").modal("show");
+</script>

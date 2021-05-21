@@ -50,6 +50,11 @@ namespace DAL
                 ?.Elements("caste")
                 .FirstOrDefault(el => el.Attribute("id")?.Value == id.ToString());
 
+            if (xCaste == null)
+            {
+                return null;
+            }
+
             Caste caste = new Caste()
             {
                 Name = xCaste?.Element("name")?.Value

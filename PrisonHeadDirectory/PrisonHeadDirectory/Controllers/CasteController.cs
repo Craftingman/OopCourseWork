@@ -47,5 +47,16 @@ namespace PrisonHeadDirectory.Controllers
 
             return View(caste);
         }
+        
+        public string GetCasteName(int id)
+        {
+            Caste caste = _casteDalService.Get(id);
+            if (caste is null)
+            {
+                return "-- не выбрано --";
+            }
+            
+            return caste.Name;
+        }
     }
 }

@@ -4,25 +4,25 @@
 
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                Имя
-            </th>
-            <th>
-                Отчество
-            </th>
-            <th>
-                Фамилия
-            </th>
-            <th>
-                Роль
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            Имя
+        </th>
+        <th>
+            Отчество
+        </th>
+        <th>
+            Фамилия
+        </th>
+        <th>
+            Роль
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
     @foreach (var item in Model) {
-        <tr>
+        <tr onclick="displayRelativeInfo(@item.Id)">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -43,3 +43,10 @@
     }
     </tbody>
 </table>
+<div id="modal-relative-container"></div>
+
+<script type="text/javascript">
+    function displayRelativeInfo(id) {
+        $("#modal-relative-container").load('@Url.Action("DisplayRelativeInfo", "Relative")?id='+id);
+    }
+</script>

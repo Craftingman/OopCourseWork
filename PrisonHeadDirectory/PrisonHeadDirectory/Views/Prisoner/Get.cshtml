@@ -5,6 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    tbody tr {
+        cursor: pointer;
+    }
+    tbody tr:hover {
+        background: lightgray;
+    }
+</style>
 <h1>Заключенные</h1>
 
 <p>
@@ -12,54 +20,65 @@
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                Имя
-            </th>
-            <th>
-                Отчество
-            </th>
-            <th>
-                Фамилия
-            </th>
-            <th>
-                Дата заключения
-            </th>
-            <th>
-                Дата освобождения
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            Имя
+        </th>
+        <th>
+            Отчество
+        </th>
+        <th>
+            Фамилия
+        </th>
+        <th>
+            Дата заключения
+        </th>
+        <th>
+            Дата освобождения
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MiddleName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Surname)
-                </td>
-                <td>
-                    @{
-                        var arrestDate = item.ArrestDate.ToShortDateString();
-                        @Html.DisplayFor(modelItem => arrestDate)
-                    }
-                </td>
-                <td>
-                    @{
-                        var releaseDate = item.ReleaseDate.ToShortDateString();
-                        @Html.DisplayFor(modelItem => releaseDate);
-                    }
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                </td>
-            </tr>
-        }
+    @foreach (var item in Model) {
+        <tr onclick="displayPrisonerInfo(@item.Id)">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @{
+                    var arrestDate = item.ArrestDate.ToShortDateString();
+                    @Html.DisplayFor(modelItem => arrestDate)
+                }
+            </td>
+            <td>
+                @{
+                    var releaseDate = item.ReleaseDate.ToShortDateString();
+                    @Html.DisplayFor(modelItem => releaseDate);
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
     </tbody>
 </table>
+<div id="modal-container"></div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    function displayPrisonerInfo(id) {
+        $("#modal-container").load('@Url.Action("DisplayPrisonerInfo", "Prisoner")?id='+id);
+    }
+</script>

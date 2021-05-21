@@ -34,7 +34,31 @@ namespace PrisonHeadDirectory.Controllers
         {
             IEnumerable<Prisoner> prisoners = _prisonerDalService.GetPrisoners();
             List<PrisonerShort> prisonerShorts = new List<PrisonerShort>();
+            /*
+            var castes = _casteDalService.GetAll().ToList();
+            var articles = _articleDalService.GetAll().ToList();
+
+            castes.Add(new Caste()
+            {
+                Name = "-- Не выбрано --",
+                Id = 0
+            });
             
+            articles.Add(new Article()
+            {
+                Name = "-- Не выбрано --",
+                Id = 0
+            });
+
+            SelectList castesList = 
+                new SelectList(castes, "Id", "Name",0);
+
+            SelectList articlesList =
+                new SelectList(articles, "Id", "Name", 0);
+
+            ViewBag.Articles = articlesList;
+            ViewBag.Castes = castesList;
+            */
             foreach (var prisoner in prisoners)
             {
                 prisonerShorts.Add(new PrisonerShort()
@@ -120,7 +144,7 @@ namespace PrisonHeadDirectory.Controllers
             {
                 _prisonerDalService.Update(prisoner);
                 
-                return View(prisoner);
+                return RedirectToAction("Edit", new {id = prisoner.Id});
             }
 
             return View(prisoner);
@@ -133,9 +157,10 @@ namespace PrisonHeadDirectory.Controllers
         }
         
         [HttpGet]
-        public IActionResult DisplayPrisonerInfo(Prisoner prisoner)
+        public IActionResult DisplayPrisonerInfo(int id)
         {
-            return PartialView("_GetPrisonerInfo");
+            Prisoner prisoner = _prisonerDalService.Get(id);
+            return PartialView("_PrisonerInfo", prisoner);
         }
 
         [HttpGet]

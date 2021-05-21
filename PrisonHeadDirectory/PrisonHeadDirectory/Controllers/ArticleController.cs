@@ -47,5 +47,16 @@ namespace PrisonHeadDirectory.Controllers
 
             return View(article);
         }
+
+        public string GetArticleName(int id)
+        {
+            Article article = _articleDalService.Get(id);
+            if (article is null)
+            {
+                return "-- не выбрано --";
+            }
+
+            return $"{article.Number} - {article.Name}";
+        }
     }
 }
