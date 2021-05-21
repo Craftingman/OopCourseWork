@@ -151,9 +151,10 @@ namespace PrisonHeadDirectory.Controllers
         }
         
         [HttpGet]
-        public IActionResult Delete()
+        public IActionResult Delete(int id)
         {
-            return View();
+            _prisonerDalService.Delete(id);
+            return RedirectToAction("Get");
         }
         
         [HttpGet]

@@ -26,80 +26,40 @@
       <name>admin</name>
     </role>
   </roles>
-  <prisoners lastId="4">
-    <prisoner id="1">
+  <prisoners lastId="6">
+    <prisoner id="5">
       <name>Иван</name>
       <surname>Иванов</surname>
       <middleName>Иванович</middleName>
-      <releaseDate>13.05.2021 00:00:00</releaseDate>
-      <arrestDate>15.07.2010 00:00:00</arrestDate>
-      <notes>Норм чел</notes>
+      <releaseDate>24.08.2029 00:00:00</releaseDate>
+      <arrestDate>18.05.2021 00:00:00</arrestDate>
+      <notes>Боксёр, бывший рецидивист, очень опасен</notes>
+      <cell>11</cell>
+      <imgPath></imgPath>
+      <casteId>2</casteId>
+      <articleId>1</articleId>
+    </prisoner>
+    <prisoner id="6">
+      <name>Сидр</name>
+      <surname>Сидоров</surname>
+      <middleName>Сидорович</middleName>
+      <releaseDate>26.08.2021 00:00:00</releaseDate>
+      <arrestDate>20.05.2021 00:00:00</arrestDate>
+      <notes>Хакер, в стенах тюрьмы опасности не представляет</notes>
       <cell>13</cell>
       <imgPath></imgPath>
-      <casteId>2</casteId>
-      <articleId>1</articleId>
-    </prisoner>
-    <prisoner id="2">
-      <name>Писюн</name>
-      <surname>Писюнищенко</surname>
-      <middleName>Писюнович</middleName>
-      <releaseDate>22.05.2021 00:00:00</releaseDate>
-      <arrestDate>21.05.2021 00:00:00</arrestDate>
-      <notes>Писюн писюном, что сказать, нечего сказать</notes>
-      <cell>317</cell>
-      <imgPath></imgPath>
       <casteId>1</casteId>
-      <articleId>1</articleId>
-    </prisoner>
-    <prisoner id="3">
-      <name>Пигорь</name>
-      <surname>Пигоренко</surname>
-      <middleName>Пигоревич</middleName>
-      <releaseDate>29.11.2029 00:00:00</releaseDate>
-      <arrestDate>04.05.2021 00:00:00</arrestDate>
-      <notes>Пигорь пигорем</notes>
-      <cell>126</cell>
-      <imgPath></imgPath>
-      <casteId>2</casteId>
-      <articleId>2</articleId>
-    </prisoner>
-    <prisoner id="4">
-      <name>Николай</name>
-      <surname>Волосников</surname>
-      <middleName>Андреевич</middleName>
-      <releaseDate>12.06.2098 00:00:00</releaseDate>
-      <arrestDate>21.05.2021 00:00:00</arrestDate>
-      <notes>Нехороший человек, редиска</notes>
-      <cell>1337</cell>
-      <imgPath></imgPath>
-      <casteId>5</casteId>
-      <articleId>2</articleId>
+      <articleId>7</articleId>
     </prisoner>
   </prisoners>
-  <relatives lastId="14">
-    <relative prisonerId="3" id="12">
-      <name>Алина</name>
-      <surname>Позорная</surname>
-      <middleName>Галина</middleName>
-      <address>пл. Святой Марии</address>
-      <phoneNumber>0902394543435</phoneNumber>
-      <relativeRole>Сестра</relativeRole>
-    </relative>
-    <relative prisonerId="2" id="13">
-      <name>Андрей</name>
-      <surname>Павленко</surname>
-      <middleName>Палыч</middleName>
-      <address>пл. Павла, 1</address>
-      <phoneNumber>22222200193487383</phoneNumber>
-      <relativeRole>Любовник</relativeRole>
-    </relative>
-    <relative prisonerId="4" id="14">
-      <name>Ян</name>
-      <surname>Игоренко</surname>
-      <middleName>Данилович</middleName>
-      <address>пл. Любовников</address>
-      <phoneNumber>2352675638</phoneNumber>
-      <relativeRole>Любовник</relativeRole>
+  <relatives lastId="16">
+    <relative prisonerId="5" id="16">
+      <name>Мария</name>
+      <surname>Иванова</surname>
+      <middleName>Ивановна</middleName>
+      <address>пл. Ленина, 2а</address>
+      <phoneNumber>380993456432</phoneNumber>
+      <relativeRole>Жена</relativeRole>
     </relative>
   </relatives>
   <castes lastId="5">
@@ -109,11 +69,8 @@
     <caste id="2">
       <name>Блатные</name>
     </caste>
-    <caste id="5">
-      <name>Опущенные</name>
-    </caste>
   </castes>
-  <articles lastId="6">
+  <articles lastId="7">
     <article id="1">
       <name>Убийство по неосторожности</name>
       <number>119</number>
@@ -121,6 +78,10 @@
     <article id="2">
       <name>Умышленное средней тяжести телесное повреждение</name>
       <number>122.2</number>
+    </article>
+    <article id="7">
+      <name>Незаконное производство наркотических средств, психотропных веществ или их аналогов</name>
+      <number>307</number>
     </article>
   </articles>
 </database>

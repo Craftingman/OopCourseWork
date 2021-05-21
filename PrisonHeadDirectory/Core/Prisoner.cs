@@ -16,6 +16,7 @@ namespace Core
         public string Notes { get; set; } = string.Empty;
         
         [Required(ErrorMessage = "Не указана камера")]
+        [StringLength(10, MinimumLength = 1, ErrorMessage = "Длина названия должна быть от 1 до 10 символов")]
         public string Cell { get; set; }
 
         public string ImgPath { get; set; } = "";
