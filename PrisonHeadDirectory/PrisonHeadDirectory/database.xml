@@ -26,7 +26,7 @@
       <name>admin</name>
     </role>
   </roles>
-  <prisoners lastId="6">
+  <prisoners lastId="7">
     <prisoner id="5">
       <name>Иван</name>
       <surname>Иванов</surname>
@@ -51,8 +51,20 @@
       <casteId>1</casteId>
       <articleId>7</articleId>
     </prisoner>
+    <prisoner id="7">
+      <name>Андрей</name>
+      <surname>Андропов</surname>
+      <middleName>Андреевич</middleName>
+      <releaseDate>18.07.2029 00:00:00</releaseDate>
+      <arrestDate>14.05.2021 00:00:00</arrestDate>
+      <notes></notes>
+      <cell>44</cell>
+      <imgPath></imgPath>
+      <casteId>1</casteId>
+      <articleId>2</articleId>
+    </prisoner>
   </prisoners>
-  <relatives lastId="16">
+  <relatives lastId="18">
     <relative prisonerId="5" id="16">
       <name>Мария</name>
       <surname>Иванова</surname>
@@ -60,6 +72,22 @@
       <address>пл. Ленина, 2а</address>
       <phoneNumber>380993456432</phoneNumber>
       <relativeRole>Жена</relativeRole>
+    </relative>
+    <relative prisonerId="5" id="17">
+      <name>Игорь</name>
+      <surname>Слепаков</surname>
+      <middleName>Олегович</middleName>
+      <address>пл. Школьная</address>
+      <phoneNumber>0675993920</phoneNumber>
+      <relativeRole>Брат</relativeRole>
+    </relative>
+    <relative prisonerId="7" id="18">
+      <name>Хома</name>
+      <surname>Фомин</surname>
+      <middleName>Олегович</middleName>
+      <address>г. Дальний, ул. Неближняя, д. 13</address>
+      <phoneNumber>703927817399</phoneNumber>
+      <relativeRole>Сват</relativeRole>
     </relative>
   </relatives>
   <castes lastId="5">

@@ -30,10 +30,13 @@ namespace PrisonHeadDirectory.Controllers
         }
         
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get(string searchStr = "")
         {
-            IEnumerable<Prisoner> prisoners = _prisonerDalService.GetPrisoners();
+            searchStr ??= "";
+            
+            IEnumerable<Prisoner> prisoners = _prisonerDalService.GetPrisoners(searchStr);
             List<PrisonerShort> prisonerShorts = new List<PrisonerShort>();
+
             /*
             var castes = _casteDalService.GetAll().ToList();
             var articles = _articleDalService.GetAll().ToList();
@@ -59,6 +62,7 @@ namespace PrisonHeadDirectory.Controllers
             ViewBag.Articles = articlesList;
             ViewBag.Castes = castesList;
             */
+            
             foreach (var prisoner in prisoners)
             {
                 prisonerShorts.Add(new PrisonerShort()

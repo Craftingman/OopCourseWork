@@ -18,6 +18,13 @@
 <p>
     <a asp-action="Create">Добавить заключенного</a>
 </p>
+<div class="row">
+    @using (Html.BeginForm("Get", "Prisoner", FormMethod.Get, new {@class = "col-md-12 d-flex"}))
+    {
+        <input class="form-control col-md-3 m-1" value="" name="searchStr" type="text" id="searchStrInput"/>
+        <input class="btn-primary col-md-2 m-1" type="submit" id="searchButton" value="Поиск"/>
+    }
+</div>
 <table class="table">
     <thead>
     <tr>
@@ -78,6 +85,20 @@
 }
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
+/*
+    $("#searchButton").click(function () {
+        let searchStr = $("#searchStrInput").val();
+        console.log(searchStr);
+        
+        
+        $.ajax({
+            url: '@Url.Action("Get")',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {searchStr: searchStr},
+            success: () => {}
+        });
+    });*/
     function displayPrisonerInfo(id) {
         $("#modal-container").load('@Url.Action("DisplayPrisonerInfo", "Prisoner")?id='+id);
     }

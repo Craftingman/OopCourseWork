@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="688e7ec9-2c7d-456e-9af9-ff67c6496dff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/StatisticsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Statistics/Get.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PrisonHeadDirectory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PrisonHeadDirectory/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Article.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Article.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Caste.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Caste.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Prisoner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Prisoner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Relative.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Relative.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/PrisonerDalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/PrisonerDalService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Models/LoginViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Models/LoginViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Create.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Delete.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Get.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Get.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Relative/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Relative/Create.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +39,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/appsettings.json" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Models/EditViewModel.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Models/RegisterViewModel.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Create.cshtml" />
       <option value="$PROJECT_DIR$/DAL/Abstractions/IUserDalService.cs" />
@@ -64,12 +61,10 @@
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/_CreateRelative.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/Relative.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Relative/Create.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Caste/Create.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Create.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Get.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/_GetPrisonerInfo.cshtml" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Get.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/RelativeController.cs" />
       <option value="$PROJECT_DIR$/DAL/RelativeDalService.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/_GetRelatives.cshtml" />
@@ -81,8 +76,6 @@
       <option value="$PROJECT_DIR$/DAL/CasteDalService.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Edit.cshtml" />
       <option value="$PROJECT_DIR$/DAL/Abstractions/IPrisonerDalService.cs" />
-      <option value="$PROJECT_DIR$/DAL/PrisonerDalService.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Create.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/UsersController.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Login.cshtml" />
@@ -90,7 +83,13 @@
       <option value="$PROJECT_DIR$/Core/Article.cs" />
       <option value="$PROJECT_DIR$/Core/Caste.cs" />
       <option value="$PROJECT_DIR$/Core/Prisoner.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Relative/Create.cshtml" />
       <option value="$PROJECT_DIR$/Core/Relative.cs" />
+      <option value="$PROJECT_DIR$/DAL/PrisonerDalService.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Get.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/StatisticsController.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Statistics/Get.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1sWO87nEToQXyZVFiqMbHyGljUP" />
@@ -164,7 +163,7 @@
       <workItem from="1621259947237" duration="1182000" />
       <workItem from="1621420226022" duration="9958000" />
       <workItem from="1621495380548" duration="21007000" />
-      <workItem from="1621581279066" duration="21396000" />
+      <workItem from="1621581279066" duration="26712000" />
     </task>
     <servers />
   </component>

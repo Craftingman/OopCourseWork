@@ -14,7 +14,7 @@ namespace Core
         public string PhoneNumber { get; set; }
         
         [Required(ErrorMessage = "Не указана роль родственника")]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Длина номера должна быть от 3 до 50 символов")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Длина роли должна быть от 3 до 50 символов")]
         public string RelativeRole { get; set; }
 
         public int PrisonerId { get; set; }

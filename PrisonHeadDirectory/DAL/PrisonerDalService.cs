@@ -93,7 +93,7 @@ namespace DAL
             xPrisoner.Element("middleName").Value = prisoner.MiddleName;
             xPrisoner.Element("releaseDate").Value = prisoner.ReleaseDate.ToString();
             xPrisoner.Element("arrestDate").Value = prisoner.ArrestDate.ToString();
-            xPrisoner.Element("notes").Value = prisoner.Notes;
+            xPrisoner.Element("notes").Value = prisoner.Notes ?? String.Empty;
             xPrisoner.Element("cell").Value = prisoner.Cell;
             xPrisoner.Element("imgPath").Value = prisoner.ImgPath;
             xPrisoner.Element("casteId").Value = prisoner.CasteId.ToString();
