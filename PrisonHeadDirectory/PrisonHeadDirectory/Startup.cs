@@ -42,7 +42,8 @@ namespace PrisonHeadDirectory
             services.AddTransient<IUserDalService, UserDalService>();
             services.AddTransient<ICasteDalService, CasteDalService>();
             services.AddTransient<IArticleDalService, ArticleDalService>();
-
+            services.AddTransient<IRelativeDalService, RelativeDalService>();
+            
             services.AddControllersWithViews();
         }
 

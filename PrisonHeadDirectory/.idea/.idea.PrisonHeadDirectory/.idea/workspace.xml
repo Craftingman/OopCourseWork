@@ -5,22 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="688e7ec9-2c7d-456e-9af9-ff67c6496dff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DAL/Abstractions/IRelativeDalService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DAL/RelativeDalService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/ArticleController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/CasteController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Create.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Get.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Caste/Create.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Caste/Get.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/RelativeController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/_GetPrisonerInfo.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/_GetRelatives.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Relative/Create.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PrisonHeadDirectory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PrisonHeadDirectory/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/ArticleDalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/ArticleDalService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DAL/CasteDalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/CasteDalService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/Abstractions/IRelativeDalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/Abstractions/IRelativeDalService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/PrisonerDalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/PrisonerDalService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/RelativeDalService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/RelativeDalService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Models/RegisterUserViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Models/RegisterUserViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Get.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Get.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Caste/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Caste/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Create.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Edit.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Shared/_Layout.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,17 +38,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B0B140A2-4C83-4A28-AD0C-3F987517B68C/9/MvcRazorDiagnosticListenerExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/63D1C272-EC9C-4D38-887E-EEEC7C73A2A4/5/ObjectMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/B0B140A2-4C83-4A28-AD0C-3F987517B68C/D/RazorPageBase.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Core/User.cs" />
-      <option value="$PROJECT_DIR$/DAL/Class1.cs" />
-      <option value="$PROJECT_DIR$/BLL/Class1.cs" />
-      <option value="$PROJECT_DIR$/Core/Class1.cs" />
-      <option value="$PROJECT_DIR$/DAL/database.xml" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Pages/Users/Get.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Users/Delete.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Shared/Error.cshtml" />
@@ -73,28 +68,34 @@
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Models/PrisonerShort.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/PrisonHeadDirectory.csproj" />
       <option value="$PROJECT_DIR$/Core/Person.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Create.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Get.cshtml" />
       <option value="$PROJECT_DIR$/DAL/Abstractions/IPrisonerDalService.cs" />
       <option value="$PROJECT_DIR$/Core/Prisoner.cs" />
-      <option value="$PROJECT_DIR$/DAL/PrisonerDalService.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Startup.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Articles.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Create.cshtml" />
       <option value="$PROJECT_DIR$/DAL/ArticleDalService.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/ArticleController.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Edit.cshtml" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Shared/_Layout.cshtml" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Get.cshtml" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/CasteController.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Caste/Create.cshtml" />
       <option value="$PROJECT_DIR$/DAL/CasteDalService.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Models/RegisterUserViewModel.cs" />
       <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Caste/Get.cshtml" />
       <option value="$PROJECT_DIR$/DAL/Abstractions/IRelativeDalService.cs" />
-      <option value="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" />
       <option value="$PROJECT_DIR$/DAL/RelativeDalService.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Startup.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/_CreateRelative.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/Relative.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/database.xml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Relative/Create.cshtml" />
+      <option value="$PROJECT_DIR$/DAL/PrisonerDalService.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/RelativeController.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/_GetRelatives.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Create.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Caste/Create.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Create.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Edit.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/_GetPrisonerInfo.cshtml" />
+      <option value="$PROJECT_DIR$/PrisonHeadDirectory/Views/Article/Get.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1sWO87nEToQXyZVFiqMbHyGljUP" />
@@ -167,7 +168,8 @@
       <workItem from="1621250709964" duration="6166000" />
       <workItem from="1621259947237" duration="1182000" />
       <workItem from="1621420226022" duration="9958000" />
-      <workItem from="1621495380548" duration="15178000" />
+      <workItem from="1621495380548" duration="21007000" />
+      <workItem from="1621581279066" duration="6498000" />
     </task>
     <servers />
   </component>
@@ -191,5 +193,29 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs</url>
+          <line>144</line>
+          <properties documentPath="D:\University\OOP\CourseWork\PrisonHeadDirectory\PrisonHeadDirectory\Controllers\PrisonerController.cs" initialLine="143" containingFunctionPresentation="method 'CreateRelative'">
+            <startOffsets>
+              <option value="4398" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4432" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#PrisonHeadDirectory.Controllers.PrisonerController.Edit" memberName="prisoner" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

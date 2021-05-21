@@ -1,0 +1,45 @@
+@model IEnumerable<Core.Relative>
+
+<h3>Родственники</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Имя
+            </th>
+            <th>
+                Отчество
+            </th>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Роль
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RelativeRole)
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "DeleteRelative", "Prisoner", 
+                    new {id = item.Id, prisonerId = item.PrisonerId})
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

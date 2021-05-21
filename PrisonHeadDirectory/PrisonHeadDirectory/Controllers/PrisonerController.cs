@@ -15,15 +15,18 @@ namespace PrisonHeadDirectory.Controllers
         private readonly IPrisonerDalService _prisonerDalService;
         private readonly ICasteDalService _casteDalService;
         private readonly IArticleDalService _articleDalService;
+        private readonly IRelativeDalService _relativeDalService;
 
         public PrisonerController(
             IPrisonerDalService prisonerDalService,
             ICasteDalService casteDalService,
-            IArticleDalService articleDalService)
+            IArticleDalService articleDalService,
+            IRelativeDalService relativeDalService)
         {
             _prisonerDalService = prisonerDalService;
             _casteDalService = casteDalService;
             _articleDalService = articleDalService;
+            _relativeDalService = relativeDalService;
         }
         
         [HttpGet]
@@ -117,7 +120,7 @@ namespace PrisonHeadDirectory.Controllers
             {
                 _prisonerDalService.Update(prisoner);
                 
-                return RedirectToAction("Get");
+                return View(prisoner);
             }
 
             return View(prisoner);
@@ -127,6 +130,26 @@ namespace PrisonHeadDirectory.Controllers
         public IActionResult Delete()
         {
             return View();
+        }
+        
+        [HttpGet]
+        public IActionResult DisplayPrisonerInfo(Prisoner prisoner)
+        {
+            return PartialView("_GetPrisonerInfo");
+        }
+
+        [HttpGet]
+        public IActionResult DeleteRelative(int id, int prisonerId)
+        {
+            _relativeDalService.Delete(id);
+            return RedirectToAction("Edit", new {id = prisonerId});
+        }
+        
+        [HttpPost]
+        public IActionResult CreateRelative(Relative relative)
+        {
+            _relativeDalService.Add(relative);
+            return null;
         }
     }
 }

@@ -45,7 +45,7 @@
       <middleName>Писюнович</middleName>
       <releaseDate>22.05.2021 00:00:00</releaseDate>
       <arrestDate>21.05.2021 00:00:00</arrestDate>
-      <notes>Писюн писюном, что сказать</notes>
+      <notes>Писюн писюном, что сказать, нечего сказать</notes>
       <cell>317</cell>
       <imgPath></imgPath>
       <casteId>1</casteId>
@@ -64,8 +64,15 @@
       <articleId>2</articleId>
     </prisoner>
   </prisoners>
-  <relatives lastId="0">
-    
+  <relatives lastId="11">
+    <relative prisonerId="2" id="11">
+      <name>уапуц</name>
+      <surname>ено</surname>
+      <middleName>цуац</middleName>
+      <address>ноеное</address>
+      <phoneNumber>ноен</phoneNumber>
+      <relativeRole>еноено</relativeRole>
+    </relative>
   </relatives>
   <castes lastId="5">
     <caste id="1">

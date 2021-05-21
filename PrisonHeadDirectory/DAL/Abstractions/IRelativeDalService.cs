@@ -5,12 +5,12 @@ namespace DAL.Abstractions
 {
     public interface IRelativeDalService
     {
-        void Add(Relative caste);
+        void Add(Relative relative);
 
         void Delete(int id);
         
         Relative Get(int id);
 
-        IEnumerable<Relative> GetAll();
+        IEnumerable<Relative> GetAll(int prisonerId);
     }
 }

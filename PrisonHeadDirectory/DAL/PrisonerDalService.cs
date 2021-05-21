@@ -120,6 +120,7 @@ namespace DAL
                 ImgPath = xPrisoner.Element("imgPath").Value,
                 CasteId = Int32.Parse(xPrisoner.Element("casteId").Value ?? String.Empty),
                 ArticleId = Int32.Parse(xPrisoner.Element("articleId").Value ?? String.Empty),
+                Relatives = GetRelatives(id),
                 Id = Int32.Parse(xPrisoner.Attribute("id").Value ?? String.Empty)
             };
 
@@ -146,6 +147,7 @@ namespace DAL
                     Name = xRelative.Element("name")?.Value,
                     Surname = xRelative.Element("surname")?.Value,
                     MiddleName = xRelative.Element("middleName")?.Value,
+                    Id = int.Parse(xRelative.Attribute("id")?.Value ?? string.Empty)
                 });
             }
 
