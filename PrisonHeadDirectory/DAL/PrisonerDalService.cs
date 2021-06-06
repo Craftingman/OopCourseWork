@@ -6,6 +6,7 @@ using System.Xml.Linq;
 using Core;
 using DAL.Abstractions;
 using Microsoft.Extensions.Configuration;
+using Microsoft.VisualBasic;
 
 namespace DAL
 {
@@ -40,9 +41,8 @@ namespace DAL
                     ArrestDate = DateTime.Parse(xPrisoner.Element("arrestDate")?.Value ?? string.Empty),
                     Notes = xPrisoner.Element("notes")?.Value,
                     Cell = xPrisoner.Element("cell")?.Value,
-                    ImgPath = xPrisoner.Element("imgPath")?.Value,
                     Relatives = relatives,
-                    ArticleId = int.Parse(xPrisoner.Element("articleId")?.Value ?? string.Empty),
+                    Articles = GetArticles(int.Parse(xPrisoner?.Attribute("id")?.Value ?? "-1")),
                     CasteId = int.Parse(xPrisoner.Element("casteId")?.Value ?? string.Empty)
                 });
             }
@@ -56,6 +56,9 @@ namespace DAL
         {
             int id = int.Parse(_database.Element("prisoners")?.Attribute("lastId").Value ?? string.Empty) + 1;
             prisoner.Id = id;
+            
+            string articlesStr = string.Join(",", prisoner.Articles
+                .Select(a => a.Id.ToString()));
 
             XElement xPrisoner = new XElement("prisoner", 
                 new XElement("name", prisoner.Name),
@@ -65,9 +68,8 @@ namespace DAL
                 new XElement("arrestDate", prisoner.ArrestDate),
                 new XElement("notes", prisoner.Notes),
                 new XElement("cell", prisoner.Cell),
-                new XElement("imgPath", prisoner.ImgPath),
                 new XElement("casteId", prisoner.CasteId),
-                new XElement("articleId", prisoner.ArticleId),
+                new XElement("articles", articlesStr),
                 new XAttribute("id", id));
             
             _database.Element("prisoners")?.Add(xPrisoner);
@@ -87,6 +89,9 @@ namespace DAL
             {
                 return;
             }
+            
+            string articlesStr = string.Join(",", prisoner.Articles
+                .Select(a => a.Id.ToString()));
 
             xPrisoner.Element("name").Value = prisoner.Name;
             xPrisoner.Element("surname").Value = prisoner.Surname;
@@ -95,9 +100,8 @@ namespace DAL
             xPrisoner.Element("arrestDate").Value = prisoner.ArrestDate.ToString();
             xPrisoner.Element("notes").Value = prisoner.Notes ?? String.Empty;
             xPrisoner.Element("cell").Value = prisoner.Cell;
-            xPrisoner.Element("imgPath").Value = prisoner.ImgPath;
             xPrisoner.Element("casteId").Value = prisoner.CasteId.ToString();
-            xPrisoner.Element("articleId").Value = prisoner.ArticleId.ToString();
+            xPrisoner.Element("articles").Value = articlesStr;
             
             _database.Save(_configuration.GetConnectionString("Database"));
         }
@@ -147,16 +151,39 @@ namespace DAL
                 ArrestDate = DateTime.Parse(xPrisoner.Element("arrestDate").Value),
                 Notes = xPrisoner.Element("notes").Value,
                 Cell = xPrisoner.Element("cell").Value,
-                ImgPath = xPrisoner.Element("imgPath").Value,
                 CasteId = Int32.Parse(xPrisoner.Element("casteId").Value ?? String.Empty),
-                ArticleId = Int32.Parse(xPrisoner.Element("articleId").Value ?? String.Empty),
                 Relatives = GetRelatives(id),
+                Articles = GetArticles(id),
                 Id = Int32.Parse(xPrisoner.Attribute("id").Value ?? String.Empty)
             };
 
             return prisoner;
         }
 
+        private List<Article> GetArticles(int prisonerId)
+        {
+            XElement xPrisoner = _database.Element("prisoners")
+                .Elements("prisoner")
+                .FirstOrDefault(p => p.Attribute("id")?.Value == prisonerId.ToString());
+
+            List<Article> articles = new List<Article>();
+
+            foreach (var articleIdStr in xPrisoner.Element("articles").Value.Split(","))
+            {
+                XElement xArticle = _database.Element("articles")
+                    .Elements("article")
+                    .FirstOrDefault(p => p.Attribute("id")?.Value == articleIdStr);
+                
+                articles.Add( new Article()
+                {
+                    Id = Int32.Parse(xArticle.Attribute("id").Value ?? String.Empty),
+                    Name = xArticle.Element("name")?.Value,
+                    Number = xArticle.Element("number")?.Value
+                });
+            }
+
+            return articles;
+        }
 
         private List<Relative> GetRelatives(int prisonerId)
         {

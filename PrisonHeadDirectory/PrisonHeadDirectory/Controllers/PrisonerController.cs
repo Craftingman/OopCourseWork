@@ -37,32 +37,6 @@ namespace PrisonHeadDirectory.Controllers
             IEnumerable<Prisoner> prisoners = _prisonerDalService.GetPrisoners(searchStr);
             List<PrisonerShort> prisonerShorts = new List<PrisonerShort>();
 
-            /*
-            var castes = _casteDalService.GetAll().ToList();
-            var articles = _articleDalService.GetAll().ToList();
-
-            castes.Add(new Caste()
-            {
-                Name = "-- Не выбрано --",
-                Id = 0
-            });
-            
-            articles.Add(new Article()
-            {
-                Name = "-- Не выбрано --",
-                Id = 0
-            });
-
-            SelectList castesList = 
-                new SelectList(castes, "Id", "Name",0);
-
-            SelectList articlesList =
-                new SelectList(articles, "Id", "Name", 0);
-
-            ViewBag.Articles = articlesList;
-            ViewBag.Castes = castesList;
-            */
-            
             foreach (var prisoner in prisoners)
             {
                 prisonerShorts.Add(new PrisonerShort()

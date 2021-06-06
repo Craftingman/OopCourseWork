@@ -19,13 +19,11 @@ namespace Core
         [StringLength(10, MinimumLength = 1, ErrorMessage = "Длина названия должна быть от 1 до 10 символов")]
         public string Cell { get; set; }
 
-        public string ImgPath { get; set; } = "";
-
         //Relations
 
         public int CasteId { get; set; }
 
-        public int ArticleId { get; set; }
+        public ICollection<Article> Articles { get; set; }
 
         public ICollection<Relative> Relatives { get; set; } = new List<Relative>();
     }
