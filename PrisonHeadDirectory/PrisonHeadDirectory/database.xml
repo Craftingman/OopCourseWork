@@ -45,7 +45,7 @@
       <cell>11</cell>
       <imgPath></imgPath>
       <casteId>2</casteId>
-      <articles></articles>
+      <articles>7</articles>
     </prisoner>
     <prisoner id="6">
       <name>Сидр</name>
@@ -55,8 +55,9 @@
       <arrestDate>20.05.2021 00:00:00</arrestDate>
       <notes>Хакер, в стенах тюрьмы опасности не представляет</notes>
       <cell>13</cell>
+      <casteId>2</casteId>
       <imgPath></imgPath>
-      <articles></articles>
+      <articles>2,9</articles>
     </prisoner>
     <prisoner id="7">
       <name>Андрей</name>
@@ -68,7 +69,7 @@
       <cell>44</cell>
       <imgPath></imgPath>
       <casteId>1</casteId>
-      <articles></articles>
+      <articles>9</articles>
     </prisoner>
     <prisoner id="10">
       <name>Петр</name>
@@ -79,7 +80,7 @@
       <notes>Человек</notes>
       <cell>119</cell>
       <casteId>7</casteId>
-      <articles></articles>
+      <articles>1</articles>
     </prisoner>
   </prisoners>
   <relatives lastId="20">

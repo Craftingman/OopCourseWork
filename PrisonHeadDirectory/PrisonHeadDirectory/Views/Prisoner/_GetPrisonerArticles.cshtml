@@ -1,0 +1,36 @@
+@model Core.Prisoner
+
+<h3>Статьи</h3>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Название
+        </th>
+        <th>
+            Номер
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Articles) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "DeleteArticle", "Prisoner", 
+                    new {id = item.Id, prisonerId = Model.Id})
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+

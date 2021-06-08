@@ -37,15 +37,9 @@ namespace PrisonHeadDirectory.Controllers
             {
                 TotalPrisoners = prisoners.Count(),
                 
-                ArticlePrisoners = articles.GroupJoin(prisoners,
-                    a => a.Id,
-                    p => p.ArticleId,
-                    (a, prs) => new
-                    {
-                        Article = a,
-                        PrisonerCount = prs.Count()
-                    }).ToDictionary(el => el.Article,
-                    el => el.PrisonerCount),
+                ArticlePrisoners = articles.ToDictionary(a => a,
+                    a => prisoners.Count(p => p.Articles
+                        .Select(art => art.Id).Contains(a.Id))),
                 
                 CastePrisoners = castes.GroupJoin(prisoners,
                     c => c.Id,

@@ -46,7 +46,7 @@ namespace PrisonHeadDirectory.Controllers
                         MiddleName = prisoner.MiddleName,
                         ArrestDate = prisoner.ArrestDate,
                         ReleaseDate = prisoner.ReleaseDate,
-                        ArticleId = prisoner.ArticleId,
+                        ArticleIds = prisoner.Articles.Select(a => a.Id).ToList(),
                         CasteId = prisoner.CasteId,
                         Id = prisoner.Id
                 });
@@ -79,37 +79,21 @@ namespace PrisonHeadDirectory.Controllers
             Prisoner prisoner = _prisonerDalService.Get(id);
 
             var castes = _casteDalService.GetAll().ToList();
-            var articles = _articleDalService.GetAll().ToList();
 
             castes.Add(new Caste()
             {
                 Name = "-- Не выбрано --",
                 Id = 0
             });
-            
-            articles.Add(new Article()
-            {
-                Name = "-- Не выбрано --",
-                Id = 0
-            });
-            
+
             if (!castes.Select(c => c.Id).Contains(prisoner.CasteId))
             {
                 prisoner.CasteId = 0;
             }
-            
-            if (!articles.Select(a => a.Id).Contains(prisoner.ArticleId))
-            {
-                prisoner.ArticleId = 0;
-            }
-            
+
             SelectList castesList = 
                 new SelectList(castes, "Id", "Name", prisoner.CasteId);
-
-            SelectList articlesList =
-                new SelectList(articles, "Id", "Name", prisoner.ArticleId);
             
-            ViewBag.Articles = articlesList;
             ViewBag.Castes = castesList;
             
             return View(prisoner);
@@ -120,6 +104,14 @@ namespace PrisonHeadDirectory.Controllers
         {
             if (ModelState.IsValid)
             {
+                Prisoner currentPrisoner = _prisonerDalService.Get(prisoner.Id);
+
+                if (currentPrisoner is null)
+                {
+                    return View(prisoner);
+                }
+
+                prisoner.Articles = currentPrisoner.Articles;
                 _prisonerDalService.Update(prisoner);
                 
                 return RedirectToAction("Edit", new {id = prisoner.Id});
@@ -154,6 +146,50 @@ namespace PrisonHeadDirectory.Controllers
         {
             _relativeDalService.Add(relative);
             return null;
+        }
+        
+        public IActionResult DeleteArticle(int id, int prisonerId)
+        {
+            Prisoner prisoner = _prisonerDalService.Get(prisonerId);
+            prisoner.Articles.Remove(prisoner.Articles.FirstOrDefault(a => a.Id == id));
+            
+            _prisonerDalService.Update(prisoner);
+            
+            return RedirectToAction("Edit", new {id = prisonerId});
+        }
+        
+        [HttpGet]
+        public IActionResult AddArticle(int prisonerId)
+        {
+            Prisoner prisoner = _prisonerDalService.Get(prisonerId);
+
+            if (prisoner is null)
+            {
+                return RedirectToAction("Edit", new {id = prisonerId});
+            }
+            
+            return RedirectToAction("SelectArticle", "Article", new
+            {
+                nextAction = Url.Action("AddArticle", new {prisonerId = prisonerId}),
+                exceptIds = prisoner.Articles.Select(a => a.Id).ToList()
+            });
+        }
+        
+        [HttpPost]
+        public IActionResult AddArticle(int prisonerId, int articleId)
+        {
+            Prisoner prisoner = _prisonerDalService.Get(prisonerId);
+            Article article = _articleDalService.Get(articleId);
+            
+            if (prisoner is null || article is null)
+            {
+                return Json(new { redirectToUrl = Url.Action("Edit", new {id = prisonerId}) });
+            }
+            
+            prisoner.Articles.Add(article);
+            _prisonerDalService.Update(prisoner);
+            
+            return Json(new { redirectToUrl = Url.Action("Edit", new {id = prisonerId}) });
         }
     }
 }

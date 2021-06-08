@@ -58,6 +58,7 @@ namespace DAL
 
             Article article = new Article()
             {
+                Id = int.Parse(xArticle?.Attribute("id")?.Value ?? string.Empty),
                 Name = xArticle?.Element("name")?.Value,
                 Number = xArticle?.Element("number")?.Value
             };

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Core;
 using DAL.Abstractions;
 using Microsoft.AspNetCore.Mvc;
@@ -48,15 +49,38 @@ namespace PrisonHeadDirectory.Controllers
             return View(article);
         }
 
-        public string GetArticleName(int id)
+        public string GetArticleNames(int[] ids)
         {
-            Article article = _articleDalService.Get(id);
-            if (article is null)
+            List<Article> articles = new List<Article>();
+
+            foreach (var id in ids)
+            {
+                Article article = _articleDalService.Get(id);
+
+                if (article is null)
+                {
+                    continue;
+                }
+                
+                articles.Add(article);
+            }
+
+            if (!articles.Any())
             {
                 return "-- не выбрано --";
             }
 
-            return $"{article.Number} - {article.Name}";
+            return string.Join(", ", articles.Select(a => a.Name));
+        }
+        
+        [HttpGet]
+        public IActionResult SelectArticle(string nextAction, IEnumerable<int> exceptIds)
+        {
+            ViewBag.NextAction = nextAction;
+            IEnumerable<Article> articles = _articleDalService.GetAll()
+               .Where(a => !exceptIds.Contains(a.Id)).ToList();
+            
+            return PartialView("_SelectArticle", articles);
         }
     }
 }

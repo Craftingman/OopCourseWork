@@ -170,10 +170,20 @@ namespace DAL
 
             foreach (var articleIdStr in xPrisoner.Element("articles").Value.Split(","))
             {
+                if (string.IsNullOrEmpty(articleIdStr))
+                {
+                    continue;
+                }
+
                 XElement xArticle = _database.Element("articles")
                     .Elements("article")
                     .FirstOrDefault(p => p.Attribute("id")?.Value == articleIdStr);
-                
+
+                if (xArticle is null)
+                {
+                    continue;
+                }
+
                 articles.Add( new Article()
                 {
                     Id = Int32.Parse(xArticle.Attribute("id").Value ?? String.Empty),

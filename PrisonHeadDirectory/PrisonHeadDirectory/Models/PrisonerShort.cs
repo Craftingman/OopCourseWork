@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Core;
 
 namespace PrisonHeadDirectory.Models
@@ -11,6 +12,6 @@ namespace PrisonHeadDirectory.Models
         
         public int CasteId { get; set; }
 
-        public int ArticleId { get; set; }
+        public ICollection<int> ArticleIds { get; set; }
     }
 }
