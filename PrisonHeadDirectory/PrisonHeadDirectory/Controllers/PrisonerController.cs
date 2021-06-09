@@ -28,14 +28,34 @@ namespace PrisonHeadDirectory.Controllers
             _articleDalService = articleDalService;
             _relativeDalService = relativeDalService;
         }
-        
+
         [HttpGet]
-        public IActionResult Get(string searchStr = "")
+        public IActionResult Get(string searchStr = "", int articleId = 0, int casteId = 0)
         {
             searchStr ??= "";
             
             IEnumerable<Prisoner> prisoners = _prisonerDalService.GetPrisoners(searchStr);
             List<PrisonerShort> prisonerShorts = new List<PrisonerShort>();
+            
+            var castes = _casteDalService.GetAll().ToList();
+            castes.Add(new Caste()
+            {
+                Name = "-- Не выбрано --",
+                Id = 0
+            });
+            
+            SelectList castesList = 
+                new SelectList(castes, "Id", "Name", 0);
+
+            var articles = _articleDalService.GetAll().ToList();
+            articles.Add(new Article()
+            {
+                Name = "-- Не выбрано --",
+                Id = 0
+            });
+            
+            SelectList articlesList = 
+                new SelectList(articles, "Id", "Name", 0);
 
             foreach (var prisoner in prisoners)
             {
@@ -51,7 +71,20 @@ namespace PrisonHeadDirectory.Controllers
                         Id = prisoner.Id
                 });
             }
+
+            if (casteId != 0)
+            {
+                prisonerShorts = prisonerShorts.Where(ps => ps.CasteId == casteId).ToList();
+            }
             
+            if (articleId != 0)
+            {
+                prisonerShorts = prisonerShorts.Where(ps => ps.ArticleIds.Contains(articleId)).ToList();
+            }
+
+            ViewBag.Articles = articlesList;
+            ViewBag.Castes = castesList;
+
             return View(prisonerShorts);
         }
         
