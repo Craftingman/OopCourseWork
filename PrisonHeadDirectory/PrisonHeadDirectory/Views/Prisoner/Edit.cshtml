@@ -56,7 +56,10 @@
             <hr>
             <div class="form-group">
                 <label class="control-label">Место в тюремной иерархии</label>
-                @Html.DropDownListFor(model => model.CasteId, ViewBag.Castes as SelectList)
+                @Html.DropDownListFor(model => model.CasteId, ViewBag.Castes as SelectList,  new
+                {
+                    @class = "form-control"
+                })
                 <span asp-validation-for="CasteId" class="text-danger"></span>
             </div>
             <hr>

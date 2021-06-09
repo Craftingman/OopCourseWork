@@ -32,13 +32,18 @@ namespace PrisonHeadDirectory.Controllers
 
         [HttpGet]
         public IActionResult Get(string searchStr = "", int articleId = 0, int casteId = 0,
-            string arrestDateFromStr = null, string arrestDateToStr = null)
+            string arrestDateFromStr = null, string arrestDateToStr = null,
+            string releaseDateFromStr = null, string releaseDateToStr = null)
         {
             searchStr ??= "";
             DateTime arrestDateFrom = arrestDateFromStr is null ? DateTime.MinValue
                 : DateTime.Parse(arrestDateFromStr, CultureInfo.CurrentCulture);
             DateTime arrestDateTo = arrestDateToStr is null ? DateTime.MaxValue 
                 : DateTime.Parse(arrestDateToStr, CultureInfo.CurrentCulture);
+            DateTime releaseDateFrom = releaseDateFromStr is null ? DateTime.MinValue
+                : DateTime.Parse(releaseDateFromStr, CultureInfo.CurrentCulture);
+            DateTime releaseDateTo = releaseDateToStr is null ? DateTime.MaxValue 
+                : DateTime.Parse(releaseDateToStr, CultureInfo.CurrentCulture);
 
 
             IEnumerable<Prisoner> prisoners = _prisonerDalService.GetPrisoners(searchStr);
@@ -89,8 +94,11 @@ namespace PrisonHeadDirectory.Controllers
                 prisonerShorts = prisonerShorts.Where(ps => ps.ArticleIds.Contains(articleId)).ToList();
             }
 
-            prisonerShorts = prisonerShorts.Where(ps => DateTime.Compare(ps.ArrestDate, (DateTime)arrestDateFrom) > 0
-            && DateTime.Compare(ps.ArrestDate, (DateTime)arrestDateTo) < 0)
+            prisonerShorts = prisonerShorts
+                .Where(ps => DateTime.Compare(ps.ArrestDate, (DateTime)arrestDateFrom) > 0 
+                             && DateTime.Compare(ps.ArrestDate, (DateTime)arrestDateTo) < 0
+                             && DateTime.Compare(ps.ReleaseDate, (DateTime)releaseDateFrom) > 0
+                             && DateTime.Compare(ps.ReleaseDate, (DateTime)releaseDateTo) < 0)
                 .ToList();
 
             ViewBag.Articles = articlesList;
