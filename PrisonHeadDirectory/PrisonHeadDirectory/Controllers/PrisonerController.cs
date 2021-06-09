@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Core;
 using DAL.Abstractions;
@@ -30,10 +31,16 @@ namespace PrisonHeadDirectory.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get(string searchStr = "", int articleId = 0, int casteId = 0)
+        public IActionResult Get(string searchStr = "", int articleId = 0, int casteId = 0,
+            string arrestDateFromStr = null, string arrestDateToStr = null)
         {
             searchStr ??= "";
-            
+            DateTime arrestDateFrom = arrestDateFromStr is null ? DateTime.MinValue
+                : DateTime.Parse(arrestDateFromStr, CultureInfo.CurrentCulture);
+            DateTime arrestDateTo = arrestDateToStr is null ? DateTime.MaxValue 
+                : DateTime.Parse(arrestDateToStr, CultureInfo.CurrentCulture);
+
+
             IEnumerable<Prisoner> prisoners = _prisonerDalService.GetPrisoners(searchStr);
             List<PrisonerShort> prisonerShorts = new List<PrisonerShort>();
             
@@ -81,6 +88,10 @@ namespace PrisonHeadDirectory.Controllers
             {
                 prisonerShorts = prisonerShorts.Where(ps => ps.ArticleIds.Contains(articleId)).ToList();
             }
+
+            prisonerShorts = prisonerShorts.Where(ps => DateTime.Compare(ps.ArrestDate, (DateTime)arrestDateFrom) > 0
+            && DateTime.Compare(ps.ArrestDate, (DateTime)arrestDateTo) < 0)
+                .ToList();
 
             ViewBag.Articles = articlesList;
             ViewBag.Castes = castesList;
