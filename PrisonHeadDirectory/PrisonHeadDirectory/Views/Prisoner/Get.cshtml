@@ -26,9 +26,11 @@
         data-target="#filter-collapse" aria-expanded="false" aria-controls="filter-collapse">
     Поиск по фильтрам
 </button>
-<button class="btn btn-success mb-3" type="button">
-    Сохранить выборку в Excel
-</button>
+
+@Html.ActionLink("Сохранить выборку в Excel", "GetExcel", "Prisoner", 
+    new { prisonerIds = Model.Select(p => p.Id).ToList() }, 
+    new { @class = "btn btn-success mb-3" })
+
 <div class="row collapse" id="filter-collapse">
     @using (Html.BeginForm("Get", "Prisoner", FormMethod.Get, new
     {
