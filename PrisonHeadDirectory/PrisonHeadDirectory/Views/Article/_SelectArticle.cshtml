@@ -1,0 +1,63 @@
+@model IEnumerable<Core.Article>
+
+<style>
+    .articles-table tr:hover {
+        background: lightgray;
+    }
+    
+    .articles-table tr:hover {
+        cursor: pointer;
+    }
+</style>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="articles-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Статьи</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table articles-table">
+                    <thead>
+                    <tr>
+                        <th>
+                            Название
+                        </th>
+                        <th>
+                            Номер
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model) {
+                        <tr onclick="selectArticle(@item.Id)">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Number)
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#articles-modal").modal("show");
+    function selectArticle(id) {
+        $.ajax({
+            method: "POST",
+            url: "@ViewBag.NextAction" + "&articleId=" + id,
+            success: function (response) {
+                        window.location.href = response.redirectToUrl;
+                    }
+          });
+        
+    }
+</script>

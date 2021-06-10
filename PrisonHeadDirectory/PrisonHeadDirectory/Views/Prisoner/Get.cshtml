@@ -1,0 +1,158 @@
+@model IEnumerable<PrisonerShort>
+
+@{
+    ViewData["Title"] = "Пользователи";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    tbody tr {
+        cursor: pointer;
+    }
+    tbody tr:hover {
+        background: lightgray;
+    }
+    select {
+        width: auto !important
+    }
+</style>
+<h1>Заключенные</h1>
+<hr>
+<p>
+    <a asp-action="Create">Добавить заключенного</a>
+</p>
+<hr>
+<button class="btn btn-primary mb-3" type="button" data-toggle="collapse" 
+        data-target="#filter-collapse" aria-expanded="false" aria-controls="filter-collapse">
+    Поиск по фильтрам
+</button>
+
+@Html.ActionLink("Сохранить выборку в Excel", "GetExcel", "Prisoner", 
+    new { prisonerIds = Model.Select(p => p.Id).ToList() }, 
+    new { @class = "btn btn-success mb-3" })
+
+<div class="row collapse" id="filter-collapse">
+    @using (Html.BeginForm("Get", "Prisoner", FormMethod.Get, new
+    {
+        @class = "col-md-12",
+        @autocomplete = "off"
+    }))
+    {
+        <div class="row">
+            <input class="form-control col-md-12 m-1" value="" name="searchStr" 
+                   type="text" id="searchStrInput" placeholder="Поиск по ФИО"/>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="control-label">Место в тюремной иерархии</label>
+                @Html.DropDownList("casteId", ViewBag.Castes as SelectList, new
+                {
+                    @class = "form-control w-100"
+                })
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="control-label">Статья</label>
+                @Html.DropDownList("articleId", ViewBag.Articles as SelectList, new
+                {
+                    @class = "form-control w-100"
+                })
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="control-label font-weight-bold">Дата заключения</label>
+                <p>С</p>
+                <input name="arrestDateFromStr" type="text" id="arrest-date-from" class="form-control" />
+                <p>До</p>
+                <input name="arrestDateToStr" type="text" id="arrest-date-to" class="form-control" />
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label class="control-label font-weight-bold">Дата освобождения</label>
+                <p>С</p>
+                <input name="releaseDateFromStr" type="text" id="release-date-from" class="form-control" />
+                <p>До</p>
+                <input name="releaseDateToStr" type="text" id="release-date-to" class="form-control" />
+            </div>
+        </div>
+        <hr>
+        <input class="btn btn-primary col-md-3 m-1 mb-3" type="submit" id="searchButton" value="Поиск" />
+    }
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Имя
+        </th>
+        <th>
+            Отчество
+        </th>
+        <th>
+            Фамилия
+        </th>
+        <th>
+            Дата заключения
+        </th>
+        <th>
+            Дата освобождения
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr onclick="displayPrisonerInfo(@item.Id)">
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @{
+                    var arrestDate = item.ArrestDate.ToShortDateString();
+                    @Html.DisplayFor(modelItem => arrestDate)
+                }
+            </td>
+            <td>
+                @{
+                    var releaseDate = item.ReleaseDate.ToShortDateString();
+                    @Html.DisplayFor(modelItem => releaseDate);
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<div id="modal-container"></div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#arrest-date-from").datepicker({ format: 'dd/mm/yyyy' });
+        $("#arrest-date-to").datepicker({ format: 'dd/mm/yyyy' });
+        $("#release-date-from").datepicker({ format: 'dd/mm/yyyy' });
+        $("#release-date-to").datepicker({ format: 'dd/mm/yyyy' });
+    });
+
+    function displayPrisonerInfo(id) {
+        $("#modal-container").load('@Url.Action("DisplayPrisonerInfo", "Prisoner")?id='+id);
+    }
+</script>

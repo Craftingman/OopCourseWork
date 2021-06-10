@@ -1,0 +1,40 @@
+@model IEnumerable<Core.Article>
+
+@{
+    ViewData["Title"] = "Статьи";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Статьи</h1>
+
+<p>
+    <a asp-action="Create">Добавить статью</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Название
+            </th>
+            <th>
+                Номер
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

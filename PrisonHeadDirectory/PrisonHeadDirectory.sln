@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrisonHeadDirectory", "PrisonHeadDirectory\PrisonHeadDirectory.csproj", "{FCA30F97-939E-48AB-84B2-5E4FDC32BA8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{BFD45F16-5A10-40FA-B9BA-728AD2F4D1A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{56D8D9CA-C7D1-4A46-B226-F54584ABB770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCA30F97-939E-48AB-84B2-5E4FDC32BA8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA30F97-939E-48AB-84B2-5E4FDC32BA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA30F97-939E-48AB-84B2-5E4FDC32BA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA30F97-939E-48AB-84B2-5E4FDC32BA8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFD45F16-5A10-40FA-B9BA-728AD2F4D1A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD45F16-5A10-40FA-B9BA-728AD2F4D1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD45F16-5A10-40FA-B9BA-728AD2F4D1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD45F16-5A10-40FA-B9BA-728AD2F4D1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D8D9CA-C7D1-4A46-B226-F54584ABB770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D8D9CA-C7D1-4A46-B226-F54584ABB770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D8D9CA-C7D1-4A46-B226-F54584ABB770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D8D9CA-C7D1-4A46-B226-F54584ABB770}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

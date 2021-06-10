@@ -1,0 +1,34 @@
+@model Core.Relative
+
+<style>
+    #relative-modal {
+        background: lightgray;
+    }
+</style>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="relative-modal" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Родственник</h5>
+                <button type="button" class="close" aria-label="Close" id="relative-modal-close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Имя: @Model.Name</p>
+                <p>Отчество: @Model.MiddleName</p>
+                <p>Фамилия: @Model.Surname</p>
+                <p>Адрес: @Model.Address</p>
+                <p>Номер телефона: @Model.PhoneNumber</p>
+                <p>Роль: @Model.RelativeRole</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#relative-modal").modal("show");
+    $("#relative-modal-close").click(function () {
+        $("#relative-modal").modal("hide");
+    });
+</script>

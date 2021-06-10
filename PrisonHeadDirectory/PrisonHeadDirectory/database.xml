@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<database>
+  <users lastId="6">
+    <user id="0">
+      <name>Віктор</name>
+      <surname>Жеребний</surname>
+      <middleName>Валерійович</middleName>
+      <email>craftingman111@gmail.com</email>
+      <password>aaaa1111</password>
+      <roleId>2</roleId>
+    </user>
+    <user id="2">
+      <name>User</name>
+      <surname>Userskiy</surname>
+      <middleName>Userovich</middleName>
+      <email>user@gmail.com</email>
+      <password>user</password>
+      <roleId>1</roleId>
+    </user>
+    <user id="6">
+      <name>Aaaa</name>
+      <surname>Aaaa</surname>
+      <middleName>Aaaa</middleName>
+      <email>a@a.a</email>
+      <password>a</password>
+      <roleId>1</roleId>
+    </user>
+  </users>
+  <roles>
+    <role id="1">
+      <name>default</name>
+    </role>
+    <role id="2">
+      <name>admin</name>
+    </role>
+  </roles>
+  <prisoners lastId="10">
+    <prisoner id="5">
+      <name>Иван</name>
+      <surname>Иванов</surname>
+      <middleName>Иванович</middleName>
+      <releaseDate>24.08.2029 00:00:00</releaseDate>
+      <arrestDate>18.05.2021 00:00:00</arrestDate>
+      <notes>Боксёр, бывший рецидивист, очень опасен</notes>
+      <cell>11</cell>
+      <imgPath></imgPath>
+      <casteId>2</casteId>
+      <articles>7</articles>
+    </prisoner>
+    <prisoner id="6">
+      <name>Сидр</name>
+      <surname>Сидоров</surname>
+      <middleName>Сидорович</middleName>
+      <releaseDate>26.08.2021 00:00:00</releaseDate>
+      <arrestDate>20.05.2021 00:00:00</arrestDate>
+      <notes>Хакер, в стенах тюрьмы опасности не представляет</notes>
+      <cell>13</cell>
+      <casteId>2</casteId>
+      <imgPath></imgPath>
+      <articles>2,9</articles>
+    </prisoner>
+    <prisoner id="7">
+      <name>Андрей</name>
+      <surname>Андропов</surname>
+      <middleName>Андреевич</middleName>
+      <releaseDate>18.07.2029 00:00:00</releaseDate>
+      <arrestDate>14.05.2021 00:00:00</arrestDate>
+      <notes></notes>
+      <cell>44</cell>
+      <imgPath></imgPath>
+      <casteId>1</casteId>
+      <articles>9,7</articles>
+    </prisoner>
+    <prisoner id="10">
+      <name>Петр</name>
+      <surname>Иванов</surname>
+      <middleName>Васильевич</middleName>
+      <releaseDate>28.06.2023 00:00:00</releaseDate>
+      <arrestDate>19.05.2021 00:00:00</arrestDate>
+      <notes>Человек</notes>
+      <cell>119</cell>
+      <casteId>0</casteId>
+      <articles></articles>
+    </prisoner>
+  </prisoners>
+  <relatives lastId="20">
+    <relative prisonerId="5" id="16">
+      <name>Мария</name>
+      <surname>Иванова</surname>
+      <middleName>Ивановна</middleName>
+      <address>пл. Ленина, 2а</address>
+      <phoneNumber>380993456432</phoneNumber>
+      <relativeRole>Жена</relativeRole>
+    </relative>
+    <relative prisonerId="5" id="17">
+      <name>Игорь</name>
+      <surname>Слепаков</surname>
+      <middleName>Олегович</middleName>
+      <address>пл. Школьная</address>
+      <phoneNumber>0675993920</phoneNumber>
+      <relativeRole>Брат</relativeRole>
+    </relative>
+    <relative prisonerId="7" id="18">
+      <name>Хома</name>
+      <surname>Фомин</surname>
+      <middleName>Олегович</middleName>
+      <address>г. Дальний, ул. Неближняя, д. 13</address>
+      <phoneNumber>703927817399</phoneNumber>
+      <relativeRole>Сват</relativeRole>
+    </relative>
+    <relative prisonerId="6" id="19">
+      <name>Олег</name>
+      <surname>Сидоренко</surname>
+      <middleName>Олегович</middleName>
+      <address>г. Херсон, ул. Яблочная, 7</address>
+      <phoneNumber>380995533287</phoneNumber>
+      <relativeRole>Племянник</relativeRole>
+    </relative>
+  </relatives>
+  <castes lastId="7">
+    <caste id="1">
+      <name>Мужики</name>
+    </caste>
+    <caste id="2">
+      <name>Блатные</name>
+    </caste>
+    <caste id="7">
+      <name>Каста</name>
+    </caste>
+  </castes>
+  <articles lastId="9">
+    <article id="1">
+      <name>Убийство по неосторожности</name>
+      <number>119</number>
+    </article>
+    <article id="2">
+      <name>Умышленное средней тяжести телесное повреждение</name>
+      <number>122.2</number>
+    </article>
+    <article id="7">
+      <name>Незаконное производство наркотических средств, психотропных веществ или их аналогов</name>
+      <number>307</number>
+    </article>
+    <article id="9">
+      <name>Хранение наркотиков</name>
+      <number>228</number>
+    </article>
+  </articles>
+</database>

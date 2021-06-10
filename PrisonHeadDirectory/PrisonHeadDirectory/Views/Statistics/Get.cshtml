@@ -1,0 +1,86 @@
+@model StatisticsViewModel
+
+@{
+    ViewData["Title"] = "Статистика";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Всего заключенных: @Model.TotalPrisoners</h3>
+<hr>
+<h3>По статьям</h3>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Статья
+        </th>
+        <th>
+            Количество заключенных
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.ArticlePrisoners) {
+        <tr>
+            <td>
+                @string.Concat(item.Key.Number, " - ", item.Key.Name);
+            </td>
+            <td>
+                @item.Value
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<br>
+<h3>По кастам</h3>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Каста
+        </th>
+        <th>
+            Количество заключенных
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.CastePrisoners) {
+        <tr>
+            <td>
+                @item.Key.Name
+            </td>
+            <td>
+                @item.Value
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<br>
+<h3>По сроку заключения</h3>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Срок
+        </th>
+        <th>
+            Количество заключенных
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.TermPrisoners) {
+        <tr>
+            <td>
+                @item.Key
+            </td>
+            <td>
+                @item.Value
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
