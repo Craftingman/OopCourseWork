@@ -34,7 +34,7 @@
       <name>admin</name>
     </role>
   </roles>
-  <prisoners lastId="10">
+  <prisoners lastId="11">
     <prisoner id="5">
       <name>Иван</name>
       <surname>Иванов</surname>
@@ -82,8 +82,19 @@
       <casteId>0</casteId>
       <articles></articles>
     </prisoner>
+    <prisoner id="11">
+      <name>Али</name>
+      <surname>Ши-ши</surname>
+      <middleName>Бабаевич</middleName>
+      <releaseDate>23.06.2021 00:00:00</releaseDate>
+      <arrestDate>03.06.2021 00:00:00</arrestDate>
+      <notes>Азиатской наружности, представляет большую опасность</notes>
+      <cell>113</cell>
+      <casteId>1</casteId>
+      <articles>9,2</articles>
+    </prisoner>
   </prisoners>
-  <relatives lastId="20">
+  <relatives lastId="21">
     <relative prisonerId="5" id="16">
       <name>Мария</name>
       <surname>Иванова</surname>
@@ -115,6 +126,14 @@
       <address>г. Херсон, ул. Яблочная, 7</address>
       <phoneNumber>380995533287</phoneNumber>
       <relativeRole>Племянник</relativeRole>
+    </relative>
+    <relative prisonerId="11" id="21">
+      <name>Аглы</name>
+      <surname>Ши-ши</surname>
+      <middleName>Бабаевич</middleName>
+      <address>ул. Яблочная, 183</address>
+      <phoneNumber>093483829</phoneNumber>
+      <relativeRole>Брат</relativeRole>
     </relative>
   </relatives>
   <castes lastId="7">

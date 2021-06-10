@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="688e7ec9-2c7d-456e-9af9-ff67c6496dff" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Резульат Выборки - 10.6.2021 (1).xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Резульат Выборки - 10.6.2021.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PrisonHeadDirectory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PrisonHeadDirectory/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Controllers/PrisonerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/PrisonHeadDirectory.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/PrisonHeadDirectory.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Get.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/PrisonHeadDirectory/Views/Prisoner/Get.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +190,7 @@
       <workItem from="1622998106338" duration="5850000" />
       <workItem from="1623136733184" duration="20127000" />
       <workItem from="1623225506952" duration="5281000" />
-      <workItem from="1623306306695" duration="7037000" />
+      <workItem from="1623306306695" duration="8259000" />
     </task>
     <servers />
   </component>

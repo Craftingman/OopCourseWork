@@ -23,7 +23,7 @@ namespace Core
 
         public int CasteId { get; set; }
 
-        public ICollection<Article> Articles { get; set; }
+        public ICollection<Article> Articles { get; set; } = new List<Article>();
 
         public ICollection<Relative> Relatives { get; set; } = new List<Relative>();
     }
