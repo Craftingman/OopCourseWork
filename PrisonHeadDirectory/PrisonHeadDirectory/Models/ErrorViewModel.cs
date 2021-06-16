@@ -1,5 +1,3 @@
-using System;
-
 namespace PrisonHeadDirectory.Models
 {
     public class ErrorViewModel

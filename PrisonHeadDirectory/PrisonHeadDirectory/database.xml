@@ -43,9 +43,8 @@
       <arrestDate>18.05.2021 00:00:00</arrestDate>
       <notes>Боксёр, бывший рецидивист, очень опасен</notes>
       <cell>11</cell>
-      <imgPath></imgPath>
       <casteId>2</casteId>
-      <articles>7</articles>
+      <articles>7,11</articles>
     </prisoner>
     <prisoner id="6">
       <name>Сидр</name>
@@ -56,8 +55,7 @@
       <notes>Хакер, в стенах тюрьмы опасности не представляет</notes>
       <cell>13</cell>
       <casteId>2</casteId>
-      <imgPath></imgPath>
-      <articles>2,9</articles>
+      <articles>2,7</articles>
     </prisoner>
     <prisoner id="7">
       <name>Андрей</name>
@@ -67,7 +65,6 @@
       <arrestDate>14.05.2021 00:00:00</arrestDate>
       <notes></notes>
       <cell>44</cell>
-      <imgPath></imgPath>
       <casteId>1</casteId>
       <articles>9,7</articles>
     </prisoner>
@@ -80,18 +77,7 @@
       <notes>Человек</notes>
       <cell>119</cell>
       <casteId>0</casteId>
-      <articles></articles>
-    </prisoner>
-    <prisoner id="11">
-      <name>Али</name>
-      <surname>Ши-ши</surname>
-      <middleName>Бабаевич</middleName>
-      <releaseDate>23.06.2021 00:00:00</releaseDate>
-      <arrestDate>03.06.2021 00:00:00</arrestDate>
-      <notes>Азиатской наружности, представляет большую опасность</notes>
-      <cell>113</cell>
-      <casteId>1</casteId>
-      <articles>9,2</articles>
+      <articles>7,1</articles>
     </prisoner>
   </prisoners>
   <relatives lastId="21">
@@ -127,27 +113,16 @@
       <phoneNumber>380995533287</phoneNumber>
       <relativeRole>Племянник</relativeRole>
     </relative>
-    <relative prisonerId="11" id="21">
-      <name>Аглы</name>
-      <surname>Ши-ши</surname>
-      <middleName>Бабаевич</middleName>
-      <address>ул. Яблочная, 183</address>
-      <phoneNumber>093483829</phoneNumber>
-      <relativeRole>Брат</relativeRole>
-    </relative>
   </relatives>
-  <castes lastId="7">
+  <castes lastId="10">
     <caste id="1">
       <name>Мужики</name>
     </caste>
     <caste id="2">
       <name>Блатные</name>
     </caste>
-    <caste id="7">
-      <name>Каста</name>
-    </caste>
   </castes>
-  <articles lastId="9">
+  <articles lastId="11">
     <article id="1">
       <name>Убийство по неосторожности</name>
       <number>119</number>
@@ -163,6 +138,10 @@
     <article id="9">
       <name>Хранение наркотиков</name>
       <number>228</number>
+    </article>
+    <article id="11">
+      <name>Поджег</name>
+      <number>333</number>
     </article>
   </articles>
 </database>
